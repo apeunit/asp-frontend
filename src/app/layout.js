@@ -10,9 +10,9 @@ const RootLayout = ({ children }) => {
             <body className="antialiased light">
                 <Theme
                     accentColor="blue"
-                    grayColor="sand"
+                    grayColor="gray"
                     radius="large"
-                    scaling="100%">
+                    scaling="110%">
                     {children}
                 </Theme>
             </body>
