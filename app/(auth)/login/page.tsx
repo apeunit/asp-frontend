@@ -28,16 +28,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [shouldRemember, setShouldRemember] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState<any>([]);
   const [status, setStatus] = useState(null);
 
-  useEffect(() => {
-    if (router.reset?.length > 0 && errors.length === 0) {
-      setStatus(atob(router.reset));
-    } else {
-      setStatus(null);
-    }
-  });
+  // useEffect(() => {
+  //   if (router.reset?.length > 0 && errors.length === 0) {
+  //     setStatus(atob(router.reset));
+  //   } else {
+  //     setStatus(null);
+  //   }
+  // });
 
   const submitForm = async (event) => {
     event.preventDefault();
@@ -55,13 +55,13 @@ const Login = () => {
     <>
       <AuthSessionStatus className="mb-4" status={status} />
       <Card style={{ maxWidth: 390, padding: 16 }}>
-        <Flex direction="column" gap="4" align="center" padding={4}>
+        <Flex direction="column" gap="4" align="center">
           <img src="/images/asp-app-icon.png" width={72} alt="ASP App Icon" />
           <Heading mb="2" size="6">
             Willkommen!
           </Heading>
           <form style={{ width: "100%" }} onSubmit={submitForm}>
-            <Flex direction="column" gap="4" align="stretch" padding={4}>
+            <Flex direction="column" gap="4" align="stretch">
               {/* Email Address */}
               <div>
                 <Label htmlFor="email">

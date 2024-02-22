@@ -15,7 +15,7 @@ const Page = () => {
   });
 
   const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState<any>([]);
   const [status, setStatus] = useState(null);
 
   const submitForm = (event) => {

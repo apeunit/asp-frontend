@@ -4,7 +4,7 @@ import { useAuth } from "../../hooks/auth";
 import Navigation from "./Navigation";
 import Loading from "./Loading";
 
-const AppLayout = ({ children, header }) => {
+const AppLayout = ({ children }: any) => {
   const { user } = useAuth({ middleware: "auth" });
 
   if (!user) {
