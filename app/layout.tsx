@@ -30,7 +30,7 @@ const RootLayout = ({ children }) => {
           radius="large"
           scaling="110%"
         >
-          {children}
+          <div className={styles.container}>{children}</div>
         </Theme>
       </body>
     </html>

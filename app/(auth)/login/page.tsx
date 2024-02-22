@@ -35,13 +35,13 @@ const Login = () => {
   const [errors, setErrors] = useState<any>([]);
   const [status, setStatus] = useState(null);
 
-  // useEffect(() => {
-  //   if (router.reset?.length > 0 && errors.length === 0) {
-  //     setStatus(atob(router.reset));
-  //   } else {
-  //     setStatus(null);
-  //   }
-  // });
+  useEffect(() => {
+    if (router.reset?.length > 0 && errors.length === 0) {
+      setStatus(atob(router.reset));
+    } else {
+      setStatus(null);
+    }
+  });
 
   const submitForm = async (event) => {
     event.preventDefault();

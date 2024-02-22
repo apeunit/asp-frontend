@@ -1,35 +1,22 @@
 "use client";
 
 import { useAuth } from "@/hooks/auth";
+import { Button, Card, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 
 const LoginLinks = () => {
   const { user } = useAuth({ middleware: "guest" });
 
+  console.log("user", user);
   return (
-    <div className="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-      {user ? (
-        <Link
-          href="/dashboard"
-          className="ml-4 text-sm text-gray-700 underline"
-        >
-          Dashboard
-        </Link>
-      ) : (
-        <>
-          <Link href="/login" className="text-sm text-gray-700 underline">
-            Login
-          </Link>
-
-          <Link
-            href="/register"
-            className="ml-4 text-sm text-gray-700 underline"
-          >
-            Register
-          </Link>
-        </>
-      )}
-    </div>
+    <Flex gap={"4"} mb={"3"}>
+      <Link href="/dashboard">
+        <Button>Login</Button>
+      </Link>
+      <Link href="/register">
+        <Button variant={"soft"}>Register</Button>
+      </Link>
+    </Flex>
   );
 };
 
