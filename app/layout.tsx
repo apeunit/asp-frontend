@@ -1,18 +1,32 @@
 import "@radix-ui/themes/styles.css";
-import "@/app/global.css";
+import "@/styles/global.css";
 
 import { Theme } from "@radix-ui/themes";
 
+import Image from "next/image";
+
+import styles from "./layout.module.css";
+
 export const metadata = {
-  title: "Laravel",
+  title: "Pick-Up",
 };
+
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
-      <body className="antialiased light">
+    <html lang="de">
+      <body>
+        <Image
+          className={styles.background}
+          src="/images/bg.jpg"
+          alt="ASP App Icon"
+          width={1920}
+          height={1080}
+        />
+        <div className={styles.overlay} />
         <Theme
           accentColor="blue"
           grayColor="gray"
+          panelBackground="solid"
           radius="large"
           scaling="110%"
         >

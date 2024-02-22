@@ -7,9 +7,13 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AuthSessionStatus from "../AuthSessionStatus";
 
+import styles from "./Login.module.css";
+
 import {
+  Box,
   Button,
   Card,
+  Checkbox,
   Flex,
   Heading,
   Link,
@@ -53,15 +57,15 @@ const Login = () => {
 
   return (
     <>
-      <AuthSessionStatus className="mb-4" status={status} />
-      <Card style={{ maxWidth: 390, padding: 16 }}>
+      <AuthSessionStatus status={status} />
+      <Card className={styles.card} variant="surface">
         <Flex direction="column" gap="4" align="center">
-          <img src="/images/asp-app-icon.png" width={72} alt="ASP App Icon" />
-          <Heading mb="2" size="6">
+          <img src="/favicon.png" width={72} alt="ASP App Icon" />
+          <Heading size="8" weight="medium">
             Willkommen!
           </Heading>
-          <form style={{ width: "100%" }} onSubmit={submitForm}>
-            <Flex direction="column" gap="4" align="stretch">
+          <form onSubmit={submitForm}>
+            <Flex direction="column" gap="5" align="stretch">
               {/* Email Address */}
               <div>
                 <Label htmlFor="email">
@@ -71,8 +75,9 @@ const Login = () => {
                 <TextField.Input
                   id="email"
                   type="email"
+                  size={"3"}
+                  placeholder={"name@work-email.com"}
                   value={email}
-                  className="block mt-1 w-full"
                   onChange={(event) => setEmail(event.target.value)}
                   required
                   autoFocus
@@ -90,8 +95,8 @@ const Login = () => {
                 <TextField.Input
                   id="password"
                   type="password"
+                  size={"3"}
                   value={password}
-                  className="block mt-1 w-full"
                   onChange={(event) => setPassword(event.target.value)}
                   required
                   autoComplete="current-password"
@@ -101,35 +106,22 @@ const Login = () => {
               </div>
 
               {/* Remember Me */}
-              <div className="block mt-4">
-                <label
-                  htmlFor="remember_me"
-                  className="inline-flex items-center"
-                >
-                  <input
+              <Flex direction="row" gap="4" align="stretch" justify={"between"}>
+                <Flex gap={"1"} align={"center"}>
+                  <Checkbox
+                    size={"2"}
                     id="remember_me"
-                    type="checkbox"
                     name="remember"
-                    className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    onChange={(event) =>
+                    onChange={(event: any) =>
                       setShouldRemember(event.target.checked)
                     }
                   />
 
-                  <span className="ml-2 text-sm text-gray-600">
-                    Remember me
-                  </span>
-                </label>
-              </div>
+                  <Label for="remember_me">Remember me</Label>
+                </Flex>
 
-              <div>
-                <Link
-                  href="/forgot-password"
-                  className="underline text-sm text-gray-600 hover:text-gray-900"
-                >
-                  Forgot your password?
-                </Link>
-              </div>
+                <Link href="/forgot-password">Forgot password?</Link>
+              </Flex>
               <div>
                 <Button variant="solid" size="3" style={{ width: "100%" }}>
                   Login
@@ -137,6 +129,12 @@ const Login = () => {
               </div>
             </Flex>
           </form>
+        </Flex>
+        <Flex justify={"center"} mt={"8"}>
+          <Text size="1" align={"center"}>
+            Du hast noch keinen Account?{" "}
+            <Link href="/register">Jetzt registrieren</Link>
+          </Text>
         </Flex>
       </Card>
     </>

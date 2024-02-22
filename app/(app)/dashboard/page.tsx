@@ -1,7 +1,7 @@
 import Header from "../Header";
 
 export const metadata = {
-  title: "Laravel - Dashboard",
+  title: "Pick-Up - Dashboard",
 };
 
 const Dashboard = () => {

@@ -1,0 +1,29 @@
+:root {
+  /* SPACING */
+  --space-xxl: 64px;
+  --space-xl: 48px;
+  --space-l: 36px;
+  --space-m: 24px;
+  --space-s: 12px;
+  --space-xs: 8px;
+  --space-xxs: 4px;
+
+  /* COLORS */
+
+  /* FONTS */
+  --font-size-xs: 14px;
+  --font-size-s: 16px;
+  --font-size-m: 18px;
+  --font-size-l: 22px;
+  --font-size-xl: 40px;
+  --font-size-xxl: 72px;
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+  --font-weight-black: 900;
+
+  /* OTHER */
+  --border-radius-m: 32px;
+
+  --transition-bounce: 400ms cubic-bezier(.47,1.64,.41,.8);
+}

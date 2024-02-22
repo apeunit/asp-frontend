@@ -1,10 +1,9 @@
+import { Text } from "@radix-ui/themes";
+
 const Label = ({ className, children, ...props }: any) => (
-  <label
-    className={`${className} block font-medium text-sm text-gray-700`}
-    {...props}
-  >
+  <Text as="label" size={"3"} {...props}>
     {children}
-  </label>
+  </Text>
 );
 
 export default Label;

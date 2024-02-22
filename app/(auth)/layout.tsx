@@ -1,19 +1,14 @@
 import Link from "next/link";
 import AuthCard from "./AuthCard";
 
+import styles from "./layout.module.css";
+
 export const metadata = {
-  title: "Laravel",
+  title: "Pick-Up",
 };
 
 const Layout = ({ children }) => {
-  return (
-    <div>
-      <div className="font-sans text-gray-900 antialiased">
-        auth layout
-        <AuthCard logo={<Link href="/">LOGO</Link>}>{children}</AuthCard>
-      </div>
-    </div>
-  );
+  return <div className={styles.container}>{children}</div>;
 };
 
 export default Layout;
