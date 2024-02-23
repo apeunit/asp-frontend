@@ -1,11 +1,13 @@
+import { Text } from "@radix-ui/themes";
+
 const InputError = ({ messages = [], className = "" }: any) => (
   <>
     {messages.length > 0 && (
       <>
         {messages.map((message, index) => (
-          <p className={`${className} text-sm text-red-600`} key={index}>
+          <Text size="2" color="red" className={`${className}`} key={index}>
             {message}
-          </p>
+          </Text>
         ))}
       </>
     )}

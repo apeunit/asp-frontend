@@ -1,12 +1,24 @@
-'use client'
+"use client";
 
-import Button from "@/components/shared/Button";
 import Input from "@/components/shared/Input";
 import InputError from "@/components/shared/InputError";
 import Label from "@/components/shared/Label";
-import Link from "next/link";
 import { useAuth } from "../../../hooks/auth";
 import { useState } from "react";
+
+import styles from "./Register.module.css";
+
+import {
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Flex,
+  Heading,
+  Link,
+  Text,
+  TextField,
+} from "@radix-ui/themes";
 
 const Page = () => {
   const { register } = useAuth({
@@ -33,84 +45,113 @@ const Page = () => {
   };
 
   return (
-    <form onSubmit={submitForm}>
-      {/* Name */}
-      <div>
-        <Label htmlFor="name">Name</Label>
+    <Card className={styles.card} variant="surface">
+      <Flex direction="column" gap="4" align="center">
+        <img src="/favicon.png" width={72} alt="ASP App Icon" />
+        <Heading size="8" weight="medium">
+          Registration
+        </Heading>
+        <Text size="2">Please use the email address that you use at work.</Text>
+        <form onSubmit={submitForm}>
+          <Flex direction="column" gap="5" align="stretch">
+            {/* Name */}
+            <div>
+              <Label htmlFor="name">
+                <Text weight="medium">Name</Text>
+              </Label>
 
-        <Input
-          id="name"
-          type="text"
-          value={name}
-          className="block mt-1 w-full"
-          onChange={(event) => setName(event.target.value)}
-          required
-          autoFocus
-        />
+              <TextField.Input
+                id="name"
+                type="text"
+                value={name}
+                className="block mt-1 w-full"
+                onChange={(event) => setName(event.target.value)}
+                required
+                autoFocus
+              />
 
-        <InputError messages={errors.name} className="mt-2" />
-      </div>
+              <InputError messages={errors.name} className="mt-2" />
+            </div>
 
-      {/* Email Address */}
-      <div className="mt-4">
-        <Label htmlFor="email">Email</Label>
+            {/* Email Address */}
+            <div className="mt-4">
+              <Label htmlFor="email">
+                <Text weight="medium">Email</Text>
+              </Label>
 
-        <Input
-          id="email"
-          type="email"
-          value={email}
-          className="block mt-1 w-full"
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
+              <TextField.Input
+                id="email"
+                type="email"
+                value={email}
+                className="block mt-1 w-full"
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
 
-        <InputError messages={errors.email} className="mt-2" />
-      </div>
+              <InputError messages={errors.email} className="mt-2" />
+            </div>
 
-      {/* Password */}
-      <div className="mt-4">
-        <Label htmlFor="password">Password</Label>
+            {/* Password */}
+            <div>
+              <Label htmlFor="password">
+                <Text weight="medium">Password</Text>
+              </Label>
 
-        <Input
-          id="password"
-          type="password"
-          value={password}
-          className="block mt-1 w-full"
-          onChange={(event) => setPassword(event.target.value)}
-          required
-          autoComplete="new-password"
-        />
+              <TextField.Input
+                id="password"
+                type="password"
+                value={password}
+                className="block mt-1 w-full"
+                onChange={(event) => setPassword(event.target.value)}
+                required
+                autoComplete="new-password"
+              />
 
-        <InputError messages={errors.password} className="mt-2" />
-      </div>
+              <InputError messages={errors.password} className="mt-2" />
+            </div>
 
-      {/* Confirm Password */}
-      <div className="mt-4">
-        <Label htmlFor="passwordConfirmation">Confirm Password</Label>
+            {/* Confirm Password */}
+            <div>
+              <Label htmlFor="passwordConfirmation">
+                <Text weight="medium">Confirm Password</Text>
+              </Label>
 
-        <Input
-          id="passwordConfirmation"
-          type="password"
-          value={passwordConfirmation}
-          className="block mt-1 w-full"
-          onChange={(event) => setPasswordConfirmation(event.target.value)}
-          required
-        />
+              <TextField.Input
+                id="passwordConfirmation"
+                type="password"
+                value={passwordConfirmation}
+                className="block mt-1 w-full"
+                onChange={(event) =>
+                  setPasswordConfirmation(event.target.value)
+                }
+                required
+              />
 
-        <InputError messages={errors.password_confirmation} className="mt-2" />
-      </div>
+              <InputError
+                messages={errors.password_confirmation}
+              />
+            </div>
 
-      <div className="flex items-center justify-end mt-4">
-        <Link
-          href="/login"
-          className="underline text-sm text-gray-600 hover:text-gray-900"
-        >
-          Already registered?
-        </Link>
-
-        <Button className="ml-4">Register</Button>
-      </div>
-    </form>
+            <div>
+              <Button variant="solid" size="3" style={{ width: "100%" }}>
+                Register
+              </Button>
+            </div>
+          </Flex>
+        </form>
+      </Flex>
+      <Flex justify={"center"} mt={"8"}>
+        <Text size="1" align={"center"}>
+          Du hast schon einen Account?{" "}
+          <Link
+            href="/login"
+            className="underline text-sm text-gray-600 hover:text-gray-900"
+          >
+            Jetzt einloggen
+          </Link>
+        </Text>
+      </Flex>
+    </Card>
   );
 };
 
