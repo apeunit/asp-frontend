@@ -22,7 +22,7 @@ const Dashboard = () => {
       console.log(data);
       setTourData(data);
     } catch (error) {
-      // @TODO: Error handling, e.g., inform the user about the error
+      setErrorMessage(error.message);
     }
   };
   return (
@@ -49,9 +49,7 @@ const Dashboard = () => {
         {/* Conditionally rendering the flight data or an error message */}
         {tourData && (
           <div>
-            <p>User: {tourData.name}</p>
-            <p>UserID: {tourData.id}</p>
-            <h3>Tour Details:</h3>
+            <h3>Requested Flight Number: {tourData.flightNumber}</h3>
             <div>
               {tourData.tours.map((tour, index) => (
                 <div key={index}>
