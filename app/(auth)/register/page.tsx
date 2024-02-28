@@ -9,10 +9,8 @@ import { useState } from "react";
 import styles from "./Register.module.css";
 
 import {
-  Box,
   Button,
   Card,
-  Checkbox,
   Flex,
   Heading,
   Link,
@@ -29,6 +27,7 @@ const Page = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [companyCode, setCompanyCode] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState<any>([]);
 
@@ -38,6 +37,7 @@ const Page = () => {
     register({
       name,
       email,
+      companyCode,
       password,
       password_confirmation: passwordConfirmation,
       setErrors,
@@ -89,6 +89,22 @@ const Page = () => {
               />
 
               <InputError messages={errors.email} className="mt-2" />
+            </div>
+
+            <div className="mt-4">
+              <Label htmlFor="companyCode">
+                <Text weight="medium">Company Code</Text>
+              </Label>
+
+              <TextField.Input
+                id="companyCode"
+                type="text"
+                value={companyCode}
+                className="block mt-1 w-full"
+                onChange={(event) => setCompanyCode(event.target.value)}
+              />
+
+              <InputError messages={errors.companyCode} className="mt-2" />
             </div>
 
             {/* Password */}
