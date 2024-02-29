@@ -26,6 +26,7 @@ const Page = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [companyCode, setCompanyCode] = useState("");
   const [personalNumber, setPersonalNumber] = useState("");
@@ -39,6 +40,7 @@ const Page = () => {
     register({
       name,
       email,
+      phone,
       companyCode,
       personalNumber,
       threeLetterCode,
@@ -93,6 +95,23 @@ const Page = () => {
               />
 
               <InputError messages={errors.email} className="mt-2" />
+            </div>
+
+            {/* Phone */}
+            <div className="mt-4">
+              <Label htmlFor="phone">
+                <Text weight="medium">Phone</Text>
+              </Label>
+
+              <TextField.Input
+                id="phone"
+                type="text"
+                value={phone}
+                className="block mt-1 w-full"
+                onChange={(event) => setPhone(event.target.value)}
+              />
+
+              <InputError messages={errors.phone} className="mt-2" />
             </div>
 
             {/* Personal Number */}
