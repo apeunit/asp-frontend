@@ -28,6 +28,8 @@ const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [companyCode, setCompanyCode] = useState("");
+  const [personalNumber, setPersonalNumber] = useState("");
+  const [threeLetterCode, setThreeLetterCode] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState<any>([]);
 
@@ -38,6 +40,8 @@ const Page = () => {
       name,
       email,
       companyCode,
+      personalNumber,
+      threeLetterCode,
       password,
       password_confirmation: passwordConfirmation,
       setErrors,
@@ -89,6 +93,40 @@ const Page = () => {
               />
 
               <InputError messages={errors.email} className="mt-2" />
+            </div>
+
+            {/* Personal Number */}
+            <div className="mt-4">
+              <Label htmlFor="personalNumber">
+                <Text weight="medium">Personal Number</Text>
+              </Label>
+
+              <TextField.Input
+                id="personalNumber"
+                type="text"
+                value={personalNumber}
+                className="block mt-1 w-full"
+                onChange={(event) => setPersonalNumber(event.target.value)}
+              />
+
+              <InputError messages={errors.personalNumber} className="mt-2" />
+            </div>
+
+            {/* Three Letter Code */}
+            <div className="mt-4">
+              <Label htmlFor="threeLetterCode">
+                <Text weight="medium">Three Letter Code</Text>
+              </Label>
+
+              <TextField.Input
+                id="threeLetterCode"
+                type="text"
+                value={threeLetterCode}
+                className="block mt-1 w-full"
+                onChange={(event) => setThreeLetterCode(event.target.value)}
+              />
+
+              <InputError messages={errors.threeLetterCode} className="mt-2" />
             </div>
 
             <div className="mt-4">
@@ -143,9 +181,7 @@ const Page = () => {
                 required
               />
 
-              <InputError
-                messages={errors.password_confirmation}
-              />
+              <InputError messages={errors.password_confirmation} />
             </div>
 
             <div>
