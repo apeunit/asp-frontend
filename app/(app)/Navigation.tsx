@@ -9,7 +9,6 @@ import { DropdownButton } from "@/components/shared/DropdownLink";
 import { useAuth } from "../../hooks/auth";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import BackButton from "@/components/shared/BackButton/BackButton";
 
 import { ArrowLeft, Dots } from "@/components/shared/Icons/Icons";
 import IconButton from "@/components/shared/IconButton/IconButton";
