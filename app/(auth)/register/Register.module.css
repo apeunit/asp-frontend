@@ -1,11 +1,10 @@
 .card{
     width: 100%;
-    max-width: 390px;
+    max-width: var(--container-width);
     padding: 16px;
   }
-  
-  
+
+
   .card form{
     width: 100%;
   }
-  
