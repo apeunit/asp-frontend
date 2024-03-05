@@ -4,6 +4,8 @@ import { useAuth } from "../../hooks/auth";
 import Navigation from "./Navigation";
 import Loading from "./Loading";
 
+import styles from "./layout.module.css";
+
 const AppLayout = ({ children }: any) => {
   const { user } = useAuth({ middleware: "auth" });
 
@@ -12,7 +14,7 @@ const AppLayout = ({ children }: any) => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <Navigation user={user} />
 
       <main>{children}</main>
