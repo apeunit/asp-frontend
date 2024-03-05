@@ -7,70 +7,58 @@ import { Card, Flex, Heading } from "@radix-ui/themes";
 import styles from "./Dashboard.module.css";
 import Link from "next/link";
 import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
+import Navigation from "../Navigation";
+import { useAuth } from "@/hooks/auth";
+import { toast } from "sonner";
+import TourDetailCard from "@/components/shared/TourDetailCard/TourDetailCard";
 
 const Dashboard = () => {
-  const [flightNumber, setFlightNumber] = useState("");
-  const [tourData, setTourData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
+  const { user } = useAuth({ middleware: "auth" });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setTourData(null); // Reset flight data on new submission
-    setErrorMessage(""); // Reset previous errors
+  const [flightNumber, setFlightNumber] = useState("");
+  const [tours, setTours] = useState(null);
+
+  const handleSearchUpdate = async (query) => {
+    setTours(null); // Reset flight data on new submission
 
     try {
-      const data = await fetchToursByFlightNumber(flightNumber);
+      const data = await fetchToursByFlightNumber(query);
 
       console.log(data);
-      setTourData(data);
+      setTours(data);
     } catch (error) {
-      setErrorMessage(error.message);
+      toast.error(error.message);
     }
   };
+
   return (
     <>
-      <EmptyCard />
-      <br />
-      <div className={styles.card}>
-        <Link href="/other">Link to other</Link>
-        <Flex direction="column" gap="4" align="center">
-          <img src="/favicon.png" width={72} alt="ASP App Icon" />
-          <Heading size="8" weight="medium">
-            TEST Data!
-          </Heading>
-        </Flex>
+      <Navigation user={user} onSearchUpdate={handleSearchUpdate} />
 
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={flightNumber}
-            onChange={(e) => setFlightNumber(e.target.value)}
-            placeholder="Enter flight number"
-            required
-          />
-          <button type="submit">Fetch Data</button>
-        </form>
+      {!tours && <EmptyCard />}
+      {tours &&
+        tours.tours &&
+        tours.tours.map((tour, index) => (
+          <TourDetailCard key={index} tour={tour} />
+        ))}
 
-        {/* Conditionally rendering the flight data or an error message */}
-        {tourData && (
+      {tours && (
+        <div>
+          <h3>Requested Flight Number: {tours.flightNumber}</h3>
           <div>
-            <h3>Requested Flight Number: {tourData.flightNumber}</h3>
-            <div>
-              {tourData.tours.map((tour, index) => (
-                <div key={index}>
-                  <h3>Tour {index + 1}</h3>
-                  {Object.entries(tour).map(([key, value]) => (
-                    <p key={key}>
-                      {key}: {String(value) || "N/A"}
-                    </p>
-                  ))}
-                </div>
-              ))}
-            </div>
+            {tours.tours.map((tour, index) => (
+              <div key={index}>
+                <h3>Tour {index + 1}</h3>
+                {Object.entries(tour).map(([key, value]) => (
+                  <p key={key}>
+                    {key}: {String(value) || "N/A"}
+                  </p>
+                ))}
+              </div>
+            ))}
           </div>
-        )}
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-      </div>
+        </div>
+      )}
     </>
   );
 };

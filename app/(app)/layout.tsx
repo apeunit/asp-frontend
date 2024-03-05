@@ -15,8 +15,6 @@ const AppLayout = ({ children }: any) => {
 
   return (
     <div className={styles.container}>
-      <Navigation user={user} />
-
       <main>{children}</main>
     </div>
   );
