@@ -27,11 +27,14 @@
   --radius-4: 12px;
   --radius-5: 18px;
   --radius-6: 24px;
+  --radius-7: 32px;
 
   /* TODO: clean up */
   /* COLORS */
   --white: #fff;
+  --neutral-10: #7E808A;
 
+  --accent-3: #EDF6FF;
   --accent-5: #CEE7FE;
   --accent-8: #5EB0EF;
   --accent-11: #0B68CB;

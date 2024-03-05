@@ -1,7 +1,8 @@
 .card{
   width: 100%;
-  max-width: var(--container-width);
-  padding: 16px;
+  background-color: var(--accent-3);
+  border-radius: var(--radius-7);
+  padding: var(--space-5);
 }
 
 
