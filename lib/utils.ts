@@ -19,3 +19,22 @@ export const getStatusColor = (status: tourStatus): string | null => {
       return null;
   }
 };
+
+export const TEMP_animationOptions = {
+  initial: {
+    opacity: 0,
+    y: 7,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  exit: {
+    opacity: 0,
+    y: 7,
+  },
+  transition: {
+    duration: 0.1,
+    ease: "easeInOut",
+  },
+};

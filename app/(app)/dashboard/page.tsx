@@ -11,55 +11,49 @@ import Navigation from "../Navigation";
 import { useAuth } from "@/hooks/auth";
 import { toast } from "sonner";
 import TourDetailCard from "@/components/shared/TourDetailCard/TourDetailCard";
+import { AnimatePresence, motion } from "framer-motion";
+import { TEMP_animationOptions } from "@/lib/utils";
 
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" });
 
   const [flightNumber, setFlightNumber] = useState("");
   const [tours, setTours] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSearchUpdate = async (query) => {
     setTours(null); // Reset flight data on new submission
+    setLoading(true);
 
     try {
       const data = await fetchToursByFlightNumber(query);
 
       console.log(data);
       setTours(data);
+      setLoading(false);
     } catch (error) {
       toast.error(error.message);
+      setLoading(false);
     }
   };
 
   return (
-    <>
-      <Navigation user={user} onSearchUpdate={handleSearchUpdate} />
+    <AnimatePresence mode={"sync"}>
+      <Navigation
+        key={"navigation"}
+        user={user}
+        onSearchUpdate={handleSearchUpdate}
+      />
 
-      {!tours && <EmptyCard />}
-      {tours &&
-        tours.tours &&
-        tours.tours.map((tour, index) => (
-          <TourDetailCard key={index} tour={tour} />
-        ))}
-
-      {tours && (
-        <div>
-          <h3>Requested Flight Number: {tours.flightNumber}</h3>
-          <div>
-            {tours.tours.map((tour, index) => (
-              <div key={index}>
-                <h3>Tour {index + 1}</h3>
-                {Object.entries(tour).map(([key, value]) => (
-                  <p key={key}>
-                    {key}: {String(value) || "N/A"}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+      {!tours && !loading && <EmptyCard />}
+      {tours && tours.tours && (
+        <motion.div className={styles.tours} {...TEMP_animationOptions}>
+          {tours.tours.map((tour, index) => (
+            <TourDetailCard key={`tour-card-${index}`} tour={tour} />
+          ))}
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

@@ -2,10 +2,12 @@ import { Heading, Text } from "@radix-ui/themes";
 import { Chaos } from "../Illustrations/Illustrations";
 
 import styles from "./EmptyCard.module.css";
+import { TEMP_animationOptions } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const EmptyCard = () => {
   return (
-    <div className={styles.card}>
+    <motion.div className={styles.card} {...TEMP_animationOptions}>
       <Heading size="6" weight={"regular"}>
         Bitte gib eine Flugnummer ein
       </Heading>
@@ -14,7 +16,7 @@ const EmptyCard = () => {
         Schau im Kalender nach zukünftig geplanten Fahrten.
       </Text>
       <Chaos className={styles.illustration} />
-    </div>
+    </motion.div>
   );
 };
 
