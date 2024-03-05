@@ -1,0 +1,45 @@
+.day{
+  appearance: none;
+  position: relative;
+  display: flex;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  background-color: var(--gray-a8);
+  color: var(--white);
+  border-radius: var(--radius-4);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+
+.day.isCurrent{
+  background-color: var(--white);
+  color: var(--accent-11);
+  cursor: default;
+}
+
+.day:not(.day.isCurrent):hover{
+  background-color: var(--gray-a9);
+}
+
+.day .label{
+  text-transform: uppercase;
+}
+
+.day .hasTripsIndicator{
+  width: 6px;
+  height: 6px;
+  display: block;
+  background-color: var(--accent-5);
+  position: absolute;
+  bottom: var(--space-2);
+  left: 50%;
+  border-radius: 100%;
+  transform: translateX(-50%);
+}
+
+
+.day.isCurrent .hasTripsIndicator{
+  background-color: var(--accent-8);
+}

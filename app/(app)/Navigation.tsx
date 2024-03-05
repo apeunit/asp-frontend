@@ -12,6 +12,8 @@ import { useState } from "react";
 
 import { ArrowLeft, Dots } from "@/components/shared/Icons/Icons";
 import IconButton from "@/components/shared/IconButton/IconButton";
+import { Box, Flex } from "@radix-ui/themes";
+import Calendar from "@/components/shared/Calendar/Calendar";
 
 const Navigation = ({ user }) => {
   const { logout } = useAuth();
@@ -20,46 +22,48 @@ const Navigation = ({ user }) => {
 
   return (
     <nav>
-      {/* Primary Navigation Menu */}dsjdsj
-      <div>
-        <div>
-          {/* Hamburger */}
-          <IconButton>
-            <ArrowLeft />
-          </IconButton>
-          <IconButton>
-            <Dots />
-          </IconButton>
-          <div className="-mr-2 flex items-center sm:hidden">
-            <button onClick={() => setOpen((open) => !open)} className="">
-              Burger
-            </button>
-          </div>
-        </div>
-      </div>
-      {/* Responsive Navigation Menu */}
-      {open && (
-        <div className="block sm:hidden">
-          {/* Responsive Settings Options */}
-          <div className="pt-4 pb-1 border-t border-gray-200">
-            <div className="flex items-center px-4">
-              <div className="ml-3">
-                <div className="font-medium text-base text-gray-800">
-                  {user?.name}
-                </div>
-                <div className="font-medium text-sm text-gray-500">
-                  {user?.email}
+      <Flex direction={"column"} gap={"4"}>
+        <header>
+          <Flex justify={"between"}>
+            <IconButton>
+              <ArrowLeft />
+            </IconButton>
+            <IconButton onClick={() => setOpen((open) => !open)}>
+              <Dots />
+            </IconButton>
+          </Flex>
+        </header>
+        <Calendar
+          showFutureDays={5}
+          onDaySelect={(day) => console.log("day selection", day)}
+        />
+        <div>search</div>
+        {/* Responsive Navigation Menu */}
+        {open && (
+          <div className="block sm:hidden">
+            {/* Responsive Settings Options */}
+            <div className="pt-4 pb-1 border-t border-gray-200">
+              <div className="flex items-center px-4">
+                <div className="ml-3">
+                  <div className="font-medium text-base text-gray-800">
+                    {user?.name}
+                  </div>
+                  <div className="font-medium text-sm text-gray-500">
+                    {user?.email}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-3 space-y-1">
-              {/* Authentication */}
-              <ResponsiveNavButton onClick={logout}>Logout</ResponsiveNavButton>
+              <div className="mt-3 space-y-1">
+                {/* Authentication */}
+                <ResponsiveNavButton onClick={logout}>
+                  Logout
+                </ResponsiveNavButton>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </Flex>
     </nav>
   );
 };

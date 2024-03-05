@@ -387,7 +387,7 @@
 
 "@radix-ui/colors@^3.0.0":
   version "3.0.0"
-  resolved "https://registry.npmjs.org/@radix-ui/colors/-/colors-3.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@radix-ui/colors/-/colors-3.0.0.tgz#e8a591a303c44e503bd1212cacf40a09511165e0"
   integrity sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==
 
 "@radix-ui/number@1.0.1":
@@ -1334,14 +1334,9 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-classnames@^2.3.2:
+classnames@^2.3.2, classnames@^2.5.1:
   version "2.5.1"
   resolved "https://registry.npmjs.org/classnames/-/classnames-2.5.1.tgz"
-  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
-
-classnames@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
 client-only@0.0.1, client-only@^0.0.1:

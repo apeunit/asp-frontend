@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Card, Flex, Heading } from "@radix-ui/themes";
 
 import styles from "./Dashboard.module.css";
+import Link from "next/link";
 
 const Dashboard = () => {
   const [flightNumber, setFlightNumber] = useState("");
@@ -28,6 +29,7 @@ const Dashboard = () => {
   return (
     <>
       <Card className={styles.card} variant="surface">
+        <Link href="/other">Link to other</Link>
         <Flex direction="column" gap="4" align="center">
           <img src="/favicon.png" width={72} alt="ASP App Icon" />
           <Heading size="8" weight="medium">
