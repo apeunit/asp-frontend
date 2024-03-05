@@ -6,6 +6,7 @@ import { Card, Flex, Heading } from "@radix-ui/themes";
 
 import styles from "./Dashboard.module.css";
 import Link from "next/link";
+import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
 
 const Dashboard = () => {
   const [flightNumber, setFlightNumber] = useState("");
@@ -28,7 +29,9 @@ const Dashboard = () => {
   };
   return (
     <>
-      <Card className={styles.card} variant="surface">
+      <EmptyCard />
+      <br />
+      <div className={styles.card}>
         <Link href="/other">Link to other</Link>
         <Flex direction="column" gap="4" align="center">
           <img src="/favicon.png" width={72} alt="ASP App Icon" />
@@ -67,7 +70,7 @@ const Dashboard = () => {
           </div>
         )}
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-      </Card>
+      </div>
     </>
   );
 };
