@@ -32,15 +32,23 @@
   /* TODO: clean up */
   /* COLORS */
   --white: #fff;
+  --neutral-2: #F9F9FB;
+  --neutral-9: #8B8D98;
   --neutral-10: #7E808A;
+  --neutral-11: #60646C;
 
   --accent-3: #EDF6FF;
   --accent-5: #CEE7FE;
+  --accent-7: #96C7F2;
   --accent-8: #5EB0EF;
   --accent-11: #0B68CB;
 
   /* TODO: rename? feels dumb */
   --surface: var(--white);
+  --slate-6: #DDDDE3;
+  --error-6: #F9C6C6;
+  --error-9: #E5484D;
+  --error-10: #D93D42;
 
   /* FONTS */
   --font-size-xs: 14px;

@@ -1,0 +1,99 @@
+.card{
+  background-color: var(--white);
+  border-radius: var(--radius-7);
+  padding: var(--space-7) var(--space-5);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.card.red .time{
+  text-decoration: line-through;
+  color: var(--error-10);
+}
+.card.red .time .delay{
+  display: none;
+}
+
+.card .time{
+  color: var(--neutral-10);
+}
+
+.card .time .delay{
+  color: var(--error-10);
+  margin-left: 1ch;
+}
+
+.route{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-left: var(--space-6);
+  width: 100%;
+}
+
+.route .fromTo{
+}
+
+.route .fromTo .from,
+.route .fromTo .to{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.route .fromTo .label,
+.route .fromTo .label{
+  color: var(--neutral-10);
+}
+
+.route .fromTo .from::before,
+.route .fromTo .to::before{
+  content: "";
+  background-color: var(--accent-11);
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  position: absolute;
+  right: 100%;
+  top: 9px;
+  margin-right: 15px;
+}
+
+.route .fromTo .from:last-child::before,
+.route .fromTo .to:last-child::before{
+  background-color: var(--accent-5);
+}
+
+.route .fromTo .from:not(:last-child)::after,
+.route .fromTo .to:not(:last-child)::after{
+  content: '';
+  display: block;
+  width: 2px;
+  height: calc(100% - 17px);
+  background-color: var(--accent-5);
+  position: absolute;
+  right: 100%;
+  margin-right: 18px;
+  border-radius: 100px;
+  top: 21px;
+}
+
+.route .status{
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.vehicleDetails{
+  margin-top: var(--space-6);
+}
+
+.card + .card{
+  margin-top: var(--space-4);
+}

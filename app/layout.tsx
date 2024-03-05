@@ -7,6 +7,8 @@ import Image from "next/image";
 
 import styles from "./layout.module.css";
 
+import { Toaster, toast } from "sonner";
+
 export const metadata = {
   title: "Pick-Up",
 };
@@ -30,6 +32,7 @@ const RootLayout = ({ children }) => {
           radius="large"
           scaling="110%"
         >
+          <Toaster position="top-center" richColors />
           <div className={styles.container}>{children}</div>
         </Theme>
       </body>

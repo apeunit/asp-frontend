@@ -18,7 +18,11 @@ import TripSearch from "@/components/shared/TripSearch/TripSearch";
 
 import styles from "./Navigation.module.css";
 
-const Navigation = ({ user }) => {
+type Navigation = {
+  onSearchUpdate: (query: string) => void;
+};
+
+const Navigation = ({ user, onSearchUpdate }) => {
   const { logout } = useAuth();
 
   const [open, setOpen] = useState(false);
@@ -39,9 +43,7 @@ const Navigation = ({ user }) => {
         showFutureDays={5}
         onDaySelect={(day) => console.log("day selection", day)}
       />
-      <TripSearch
-        onSearchUpdate={(query) => console.log("search query", query)}
-      />
+      <TripSearch onSearchUpdate={onSearchUpdate} />
       {/* Responsive Navigation Menu */}
       {open && (
         <div className="block sm:hidden">
