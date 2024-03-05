@@ -53,7 +53,7 @@ const VehicleDetails = (props: VehicleDetails) => {
             value: kfzfarbe,
           },
         ].map((item, index) => (
-          <Text size={"2"} className={styles.detailItem}>
+          <Text size={"2"} className={styles.detailItem} key={index}>
             <span className={styles.label}>{item.label}</span>
             <span className={styles.value}>{item.value || "N/A"}</span>
           </Text>

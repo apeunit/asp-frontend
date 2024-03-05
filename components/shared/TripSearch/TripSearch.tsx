@@ -24,7 +24,7 @@ const TripSearch = (props: TripSearch) => {
 
         onSearchUpdate && onSearchUpdate(query);
       }}
-      {...props}
+      {...rest}
     >
       <Magnifier className={styles.icon} />
       <input
