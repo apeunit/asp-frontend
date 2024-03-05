@@ -8,7 +8,33 @@
   --space-xs: 8px;
   --space-xxs: 4px;
 
+  /* TODO: clean up */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+
+  /* RADII */
+  --radius-1: 4px;
+  --radius-2: 6px;
+  --radius-3: 9px;
+  --radius-4: 12px;
+  --radius-5: 18px;
+  --radius-6: 24px;
+
+  /* TODO: clean up */
   /* COLORS */
+  --white: #fff;
+
+  --accent-5: #CEE7FE;
+  --accent-8: #5EB0EF;
+  --accent-11: #0B68CB;
 
   /* FONTS */
   --font-size-xs: 14px;

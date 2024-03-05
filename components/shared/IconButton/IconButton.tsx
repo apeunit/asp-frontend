@@ -3,6 +3,7 @@ import styles from "./IconButton.module.css";
 
 type IconButton = {
   className?: string;
+  onClick?: () => void;
   children: React.ReactNode;
 };
 
