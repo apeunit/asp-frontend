@@ -1,0 +1,31 @@
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: flex-start;
+}
+
+.label{
+  font-weight: 500;
+  font-size: var(--font-size-3);
+}
+
+.input{
+  appearance: none;
+  font: inherit;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-3);
+  border: 1px solid var(--neutral-5);
+  align-self: stretch;
+  outline: 2px solid transparent;
+  transition: all .1s ease-in-out;
+}
+
+.input:focus-visible{
+  outline-color: var(--accent-8);
+  border-color: transparent;
+}
+
+.field + .field{
+  margin-top: var(--space-4);
+}
