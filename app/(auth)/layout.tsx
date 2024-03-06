@@ -1,6 +1,3 @@
-import Link from "next/link";
-import AuthCard from "./AuthCard";
-
 import styles from "./layout.module.css";
 
 export const metadata = {

@@ -1,12 +1,18 @@
 .card{
   background-color: var(--accent-3);
   border-radius: var(--radius-7);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   padding: var(--space-7) var(--space-5);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-3);
+  flex-grow: 1;
+
+  @media screen and (min-width: 768px){
+    border-radius: var(--radius-7);
+  }
 }
 
 .card .text{

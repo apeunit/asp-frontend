@@ -58,6 +58,17 @@
   --font-size-xl: 40px;
   --font-size-xxl: 72px;
 
+  /* TODO: clean up numeric font-sizes / leftover due to Radix Migration */
+  --font-size-1: 12px;
+  --font-size-2: 14px;
+  --font-size-3: 16px;
+  --font-size-4: 18px;
+  --font-size-5: 20px;
+  --font-size-6: 24px;
+  --font-size-7: 28px;
+  --font-size-8: 35px;
+  --font-size-9: 60px;
+
   --font-weight-regular: 400;
   --font-weight-bold: 600;
   --font-weight-black: 900;

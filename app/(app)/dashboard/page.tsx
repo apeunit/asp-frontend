@@ -2,10 +2,8 @@
 
 import { fetchToursByFlightNumber } from "../../../services/pickupApi";
 import { useState } from "react";
-import { Card, Flex, Heading } from "@radix-ui/themes";
 
 import styles from "./Dashboard.module.css";
-import Link from "next/link";
 import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
 import Navigation from "../Navigation";
 import { useAuth } from "@/hooks/auth";

@@ -1,21 +1,17 @@
-import LoginLinks from "@/components/shared/LoginLinks";
-import { Card, Flex, Heading } from "@radix-ui/themes";
-import Image from "next/image";
+"use client";
 
-import styles from "./Landing.module.css";
+import { useAuth } from "@/hooks/auth";
+import { redirect } from "next/navigation";
 
 const Home = () => {
-  return (
-    <Card className={styles.card} variant="surface">
-      <Flex direction="column" gap="4" align="center">
-        <Image src="/favicon.png" width={72} height={72} alt="ASP App Icon" />
-        <Heading size="8" weight="medium">
-          Willkommen!
-        </Heading>
-        <LoginLinks />
-      </Flex>
-    </Card>
-  );
+  const { user } = useAuth({ middleware: "auth" });
+
+  console.log(user);
+  if (user) {
+    redirect("/dashboard");
+  }
+
+  return null;
 };
 
 export default Home;

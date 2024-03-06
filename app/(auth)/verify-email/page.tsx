@@ -3,17 +3,9 @@
 import { useAuth } from "../../../hooks/auth";
 import { useState } from "react";
 import styles from "./Verify.module.css";
-import {
-  Box,
-  Button,
-  Card,
-  Checkbox,
-  Flex,
-  Heading,
-  Link,
-  Text,
-  TextField,
-} from "@radix-ui/themes";
+import { Button, Callout, Text } from "@radix-ui/themes";
+import AuthCard from "../AuthCard/AuthCard";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 const Page = () => {
   const { logout, resendEmailVerification } = useAuth({
@@ -24,35 +16,33 @@ const Page = () => {
   const [status, setStatus] = useState(null);
 
   return (
-    <>
-      <Card className={styles.card} variant="surface">
-        <Flex direction="column" gap="4" align="center">
-          <img src="/favicon.png" width={72} alt="ASP App Icon" />
-          <Heading size="6" weight="medium">
-            Email Verification!
-          </Heading>
-          <div className="mb-4 text-sm text-gray-600">
-            Thanks for signing up! Before getting started, could you verify
-            verify your email address by clicking on the link we just emailed to
-            you? If you didn't receive the email, we will gladly send you
-            another.
-          </div>
+    <AuthCard className={styles.card} title="Verify Your E-Mail">
+      <Text size="3" align="center" className={styles.text}>
+        Thanks for signing up! Before getting started, could you verify your
+        email address by clicking on the link we just emailed to you? If you
+        didn't receive the email, we will gladly send you another.
+      </Text>
 
-          {status === "verification-link-sent" && (
-            <div className="mb-4 font-medium text-sm text-green-600">
-              A new verification link has been sent to the email address address
-              you provided during registration.
-            </div>
-          )}
+      {status === "verification-link-sent" && (
+        <Callout.Root color="green">
+          <Callout.Icon>
+            <InfoCircledIcon />
+          </Callout.Icon>
+          <Callout.Text>
+            A new verification link has been sent to the email address address
+            you provided during registration.
+          </Callout.Text>
+        </Callout.Root>
+      )}
 
-          <div className="mt-4 flex items-center justify-between">
-            <Button onClick={() => resendEmailVerification({ setStatus })}>
-              Resend Verification Email
-            </Button>
-          </div>
-        </Flex>
-      </Card>
-    </>
+      <Button
+        variant="solid"
+        size="4"
+        onClick={() => resendEmailVerification({ setStatus })}
+      >
+        Resend Verification Email
+      </Button>
+    </AuthCard>
   );
 };
 
