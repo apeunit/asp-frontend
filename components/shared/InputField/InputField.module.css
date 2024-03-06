@@ -26,6 +26,19 @@
   border-color: transparent;
 }
 
+.field.hasErrors .input{
+  border-color: #F5D08C;
+}
+
 .field + .field{
   margin-top: var(--space-4);
+}
+
+.field .error{
+  background-color: #FDF3D4;
+  color: #895930;
+  padding: var(--space-3);
+  border-radius: var(--radius-3);
+  margin-top: var(--space-2);
+  width: 100%;
 }

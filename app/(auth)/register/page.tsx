@@ -12,7 +12,7 @@ import InputField from "@/components/shared/InputField/InputField";
 const Page = () => {
   const { register } = useAuth({
     middleware: "guest",
-    redirectIfAuthenticated: "/dashboard",
+    redirectIfAuthenticated: "/verify-email",
   });
 
   const [name, setName] = useState("");
@@ -81,22 +81,14 @@ const Page = () => {
         />
 
         <InputField
-          label="Phone"
-          id="phone"
-          type="text"
-          placeholder={"+49 "}
-          value={phone}
-          size={"3"}
-          onChange={(event) => setPhone(event.target.value)}
-        />
-
-        <InputField
           label="Personal Number"
           id="personalNumber"
           type="text"
           value={personalNumber}
           size={"3"}
           onChange={(event) => setPersonalNumber(event.target.value)}
+          errorMessages={errors.personalNumber}
+          required
         />
 
         <InputField

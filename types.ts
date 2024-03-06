@@ -22,13 +22,7 @@ export type Tour = {
   startort: string;
   startplz: string;
   startstrasse: string;
-  status:
-    | "geplant"
-    | "fahrzeug kommt"
-    | "kunde eingestiegen"
-    | "fahre zum ziel"
-    | "auftrag abgeschlossen"
-    | "auftrag storniert";
+  status: tourStatus;
   verspaetung: string;
   zielhausnummer: string;
   zielort: string;
