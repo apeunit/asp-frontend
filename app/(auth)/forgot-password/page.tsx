@@ -1,14 +1,13 @@
 "use client";
 
-import InputError from "@/components/shared/InputError";
-import Label from "@/components/shared/Label";
 import { useAuth } from "../../../hooks/auth";
 import { useState } from "react";
 import AuthCard from "../AuthCard/AuthCard";
 
-import { Button, Link, Text, TextField } from "@radix-ui/themes";
+import { Button, Link, Text } from "@radix-ui/themes";
 
 import styles from "./ForgotPassword.module.css";
+import InputField from "@/components/shared/InputField/InputField";
 
 const Page = () => {
   const { forgotPassword } = useAuth({
@@ -34,29 +33,22 @@ const Page = () => {
       </Text>
 
       <form onSubmit={submitForm}>
-        {/* Email Address */}
-        <div className={styles.field}>
-          <Label htmlFor="email">
-            <Text weight="medium">Email</Text>
-          </Label>
-
-          <TextField.Input
-            id="email"
-            type="email"
-            size={"3"}
-            placeholder={"name@work-email.com"}
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-            autoFocus
-          />
-
-          <InputError messages={errors.email} className="mt-2" />
-        </div>
+        <InputField
+          label="E-Mail"
+          id="email"
+          type="email"
+          size={"3"}
+          placeholder={"name@work-email.com"}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
+          autoFocus
+        />
 
         <Button variant="solid" size="4">
           Email Password Reset Link
         </Button>
+
         <Button variant="soft" size="4">
           <Link href="/login">Back to Login</Link>
         </Button>

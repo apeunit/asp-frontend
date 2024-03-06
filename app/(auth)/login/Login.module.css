@@ -8,10 +8,6 @@
   flex-direction: column;
 }
 
-.card .field + .field{
-  margin-top: var(--space-4);
-}
-
 .card .forgotPassword{
   align-self: flex-end;
   margin-top: var(--space-3);
@@ -21,7 +17,6 @@
 .card button{
   margin-top: var(--space-5);
 }
-
 
 .card .alternativeLinks{
   font-size: var(--font-size-1);
