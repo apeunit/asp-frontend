@@ -1,12 +1,14 @@
 "use client";
 
-import Button from "@/components/shared/Button";
-import Input from "@/components/shared/Input";
 import InputError from "@/components/shared/InputError";
 import Label from "@/components/shared/Label";
 import { useAuth } from "../../../hooks/auth";
 import { useState } from "react";
-import AuthSessionStatus from "../AuthSessionStatus";
+import AuthCard from "../AuthCard/AuthCard";
+
+import { Button, Link, Text, TextField } from "@radix-ui/themes";
+
+import styles from "./ForgotPassword.module.css";
 
 const Page = () => {
   const { forgotPassword } = useAuth({
@@ -25,26 +27,25 @@ const Page = () => {
   };
 
   return (
-    <>
-      <div className="mb-4 text-sm text-gray-600">
-        Forgot your password? No problem. Just let us know your email email
-        address and we will email you a password reset link that that will allow
-        you to choose a new one.
-      </div>
-
-      {/* Session Status */}
-      <AuthSessionStatus className="mb-4" status={status} />
+    <AuthCard className={styles.card} title={"Forgot Password?"}>
+      <Text size="3" align="center" className={styles.text}>
+        No problem. Just let us know your email email address and we will email
+        you a password reset link that that will allow you to choose a new one.
+      </Text>
 
       <form onSubmit={submitForm}>
         {/* Email Address */}
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input
+        <div className={styles.field}>
+          <Label htmlFor="email">
+            <Text weight="medium">Email</Text>
+          </Label>
+
+          <TextField.Input
             id="email"
             type="email"
-            name="email"
+            size={"3"}
+            placeholder={"name@work-email.com"}
             value={email}
-            className="block mt-1 w-full"
             onChange={(event) => setEmail(event.target.value)}
             required
             autoFocus
@@ -53,11 +54,19 @@ const Page = () => {
           <InputError messages={errors.email} className="mt-2" />
         </div>
 
-        <div className="flex items-center justify-end mt-4">
-          <Button>Email Password Reset Link</Button>
-        </div>
+        <Button variant="solid" size="4">
+          Email Password Reset Link
+        </Button>
+        <Button variant="soft" size="4">
+          <Link href="/login">Back to Login</Link>
+        </Button>
       </form>
-    </>
+
+      <div className={styles.alternativeLinks}>
+        Sie haben noch keinen Account?{" "}
+        <Link href="/register">Jetzt registrieren</Link>
+      </div>
+    </AuthCard>
   );
 };
 

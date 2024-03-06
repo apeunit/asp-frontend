@@ -7,6 +7,11 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-y: scroll;
   color: #1A212B;
+
+  background-image: url('/images/bg.jpg');
+  background-attachment: fixed;
+
+  max-width: 100vw;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -14,6 +19,11 @@ h1,h2,h3,h4,h5,h6{
 
 *{
   box-sizing: border-box;
+  min-width: 0;
+}
+
+main{
+  width: 100%;
 }
 
 button{

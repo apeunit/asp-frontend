@@ -1,7 +1,6 @@
 "use client";
 
 import { useAuth } from "../../hooks/auth";
-import Navigation from "./Navigation";
 import Loading from "./Loading";
 
 import styles from "./layout.module.css";
