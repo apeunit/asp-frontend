@@ -27,11 +27,22 @@ const InputField = ({ label, ...props }) => {
     ...rest
   } = props;
 
+  const hasErrors = errorMessages && errorMessages.length > 0;
+
   return (
-    <div className={classNames(styles.field, className)}>
+    <div
+      className={classNames(
+        styles.field,
+        {
+          [styles.hasErrors]: hasErrors,
+        },
+        className
+      )}
+    >
       {label && (
         <label className={styles.label} htmlFor={id}>
           {label}
+          {required && "*"}
         </label>
       )}
 
