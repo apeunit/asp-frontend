@@ -6,7 +6,6 @@
   min-height: 100dvh;
 
   @media screen and (min-width: 768px){
-    padding-top: var(--space-9);
     justify-content: center;
   }
 }
