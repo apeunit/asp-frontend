@@ -1,6 +1,6 @@
 # Stage Environment
 
-https://stage.backend.asp.pick-up-app.an.jetzt/
+https://stage.frontend.asp.pick-up-app.an.jetzt/
 
 ## Basic Auth
 Username: pickup
