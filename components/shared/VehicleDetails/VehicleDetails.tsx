@@ -5,6 +5,7 @@ import { Heading, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import { getVehicleTypeNiceName } from "@/lib/format";
 import classNames from "classnames";
+import { motion } from "framer-motion";
 
 type VehicleDetails = {
   kfzfarbe: kfzfarbe;
@@ -28,7 +29,7 @@ const VehicleDetails = (props: VehicleDetails) => {
   };
 
   return (
-    <div className={classNames(styles.container, className)}>
+    <motion.div layout className={classNames(styles.container, className)}>
       <Heading size={"6"} weight={"medium"} className={styles.licensePlate}>
         {kfzkennzeichen}
       </Heading>
@@ -78,7 +79,7 @@ const VehicleDetails = (props: VehicleDetails) => {
           alt=""
         />
       )}
-    </div>
+    </motion.div>
   );
 };
 

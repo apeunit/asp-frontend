@@ -11,6 +11,8 @@ import { toast } from "sonner";
 import TourDetailCard from "@/components/shared/TourDetailCard/TourDetailCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { TEMP_animationOptions } from "@/lib/utils";
+import ToursList from "@/components/shared/ToursList/ToursList";
+import TourCard from "@/components/shared/TourCard/TourCard";
 
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" });
@@ -36,22 +38,20 @@ const Dashboard = () => {
   };
 
   return (
-    <AnimatePresence mode={"sync"}>
+    <>
       <Navigation
         key={"navigation"}
         user={user}
         onSearchUpdate={handleSearchUpdate}
       />
+      <AnimatePresence mode={"wait"}>
+        {/* no tours */}
+        {!tours && !loading && <EmptyCard />}
 
-      {!tours && !loading && <EmptyCard />}
-      {tours && tours.tours && (
-        <motion.div className={styles.tours} {...TEMP_animationOptions}>
-          {tours.tours.map((tour, index) => (
-            <TourDetailCard key={`tour-card-${index}`} tour={tour} />
-          ))}
-        </motion.div>
-      )}
-    </AnimatePresence>
+        {/* has one of multiple tours / list will handle single/multi display */}
+        {tours && tours.tours.length > 0 && <ToursList tours={tours.tours} />}
+      </AnimatePresence>
+    </>
   );
 };
 
