@@ -3,16 +3,12 @@
 import { fetchToursByFlightNumber } from "../../../services/pickupApi";
 import { useState } from "react";
 
-import styles from "./Dashboard.module.css";
 import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
 import Navigation from "../Navigation";
 import { useAuth } from "@/hooks/auth";
 import { toast } from "sonner";
-import TourDetailCard from "@/components/shared/TourDetailCard/TourDetailCard";
-import { AnimatePresence, motion } from "framer-motion";
-import { TEMP_animationOptions } from "@/lib/utils";
+import { AnimatePresence } from "framer-motion";
 import ToursList from "@/components/shared/ToursList/ToursList";
-import TourCard from "@/components/shared/TourCard/TourCard";
 
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" });
