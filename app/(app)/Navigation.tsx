@@ -31,7 +31,7 @@ const Navigation = ({ user, onSearchUpdate }) => {
         </Flex>
       </header>
       <Calendar
-        showFutureDays={5}
+        showFutureDays={0}
         onDaySelect={(day) => console.log("day selection", day)}
       />
       <TripSearch onSearchUpdate={onSearchUpdate} />
