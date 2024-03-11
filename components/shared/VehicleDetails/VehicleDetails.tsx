@@ -34,9 +34,7 @@ const VehicleDetails = (props: VehicleDetails) => {
         {kfzkennzeichen}
       </Heading>
       {kfztyp && (
-        <Text size={"3"} className={styles.type}>
-          {getVehicleTypeNiceName(kfztyp)}
-        </Text>
+        <Text className={styles.type}>{getVehicleTypeNiceName(kfztyp)}</Text>
       )}
 
       <div className={styles.details}>

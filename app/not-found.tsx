@@ -10,7 +10,7 @@ const NotFoundPage = () => {
         <Heading size={"8"} weight={"medium"}>
           404
         </Heading>
-        <Text size={"3"}>Not Found</Text>
+        <Text>Not Found</Text>
 
         <Link href={"/"}>Back to Dashboard</Link>
       </AuthCard>

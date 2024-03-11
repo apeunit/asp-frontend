@@ -42,9 +42,8 @@ const PasswordReset = () => {
       <form onSubmit={submitForm}>
         <InputField
           label="E-Mail"
-          id="email"
+          name="email"
           type="email"
-          size={"3"}
           placeholder={"name@work-email.com"}
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -54,11 +53,10 @@ const PasswordReset = () => {
 
         <InputField
           label="Password"
-          id="password"
+          name="password"
           type="password"
           placeholder={"Enter Password"}
           value={password}
-          size={"3"}
           onChange={(event) => setPassword(event.target.value)}
           required
           autoComplete="new-password"
@@ -66,11 +64,10 @@ const PasswordReset = () => {
 
         <InputField
           label="Confirm Password"
-          id="passwordConfirmation"
+          name="passwordConfirmation"
           type="password"
           placeholder={"Confirm Password"}
           value={passwordConfirmation}
-          size={"3"}
           onChange={(event) => setPasswordConfirmation(event.target.value)}
           required
           autoComplete="new-password"

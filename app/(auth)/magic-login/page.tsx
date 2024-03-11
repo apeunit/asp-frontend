@@ -50,7 +50,7 @@ const Login = () => {
         {/* Email Address */}
         <InputField
           label="E-Mail"
-          id="email"
+          name="email"
           type="email"
           placeholder={"name@work-email.com"}
           value={email}
@@ -67,7 +67,11 @@ const Login = () => {
       </form>
 
       <div>
-        <p>Wir senden Ihnen einen Code per E-Mail, damit Sie sich ohne Passwort anmelden können. Oder Sie <a href="/login">melden sich stattdessen mit einem Passwort an.</a></p>
+        <p>
+          Wir senden Ihnen einen Code per E-Mail, damit Sie sich ohne Passwort
+          anmelden können. Oder Sie{" "}
+          <a href="/login">melden sich stattdessen mit einem Passwort an.</a>
+        </p>
       </div>
 
       <div className={styles.alternativeLinks}>
