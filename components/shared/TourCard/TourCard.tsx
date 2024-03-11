@@ -105,15 +105,11 @@ const TourCard = (props: TourCard) => {
           <motion.div layout className={styles.route}>
             <motion.div layout className={styles.fromTo}>
               <div className={styles.from}>
-                <Text size={"3"} className={styles.label}>
-                  From
-                </Text>
+                <Text className={styles.label}>From</Text>
                 <Text size={"2"}>{formatTourAddress(tour, "start")}</Text>
               </div>
               <div className={styles.to}>
-                <Text size={"3"} className={styles.label}>
-                  To
-                </Text>
+                <Text className={styles.label}>To</Text>
                 <Text size={"2"}>{formatTourAddress(tour, "end")}</Text>
               </div>
             </motion.div>

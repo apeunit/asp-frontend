@@ -52,7 +52,7 @@ const Login = () => {
         {/* Email Address */}
         <InputField
           label="E-Mail"
-          id="email"
+          name="email"
           type="email"
           placeholder={"name@work-email.com"}
           value={email}
@@ -65,9 +65,8 @@ const Login = () => {
 
         <InputField
           label="Password"
-          id="password"
+          name="password"
           type="password"
-          size={"3"}
           placeholder={"Enter Password"}
           value={password}
           onChange={(event) => setPassword(event.target.value)}

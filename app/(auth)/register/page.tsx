@@ -47,81 +47,83 @@ const Page = () => {
       <form onSubmit={submitForm}>
         <InputField
           label="Name"
-          id="name"
+          name="name"
           type="text"
           placeholder={"Vorname Nachname"}
           value={name}
-          size={"3"}
           onChange={(event) => setName(event.target.value)}
           required
           autoFocus
           autoComplete={"name"}
         />
-
         <InputField
           label="E-Mail"
-          id="email"
+          name="email"
           type="email"
           placeholder={"name@work-email.com"}
           value={email}
-          size={"3"}
           onChange={(event) => setEmail(event.target.value)}
           required
           autoComplete={"email"}
         />
-
         <InputField
           label="Phone"
-          id="phone"
+          name="phone"
           type="text"
           placeholder={"+49 "}
           value={phone}
-          size={"3"}
           onChange={(event) => setPhone(event.target.value)}
         />
-
         <InputField
           label="Personal Number"
-          id="personalNumber"
+          name="personalNumber"
           type="text"
           value={personalNumber}
-          size={"3"}
           onChange={(event) => setPersonalNumber(event.target.value)}
           errorMessages={errors.personalNumber}
           required
         />
-
         <InputField
           label="Company Code"
-          id="companyCode"
-          type="text"
+          description="The Company Code is provided by your employer. If you don't have one, please contact your employer."
+          name="companyCode"
+          type="otp"
+          expandable
+          initiallyExpanded={false}
           value={companyCode}
-          size={"3"}
-          onChange={(event) => setCompanyCode(event.target.value)}
+          onChange={(value) => setCompanyCode(value)}
         />
-
         <InputField
           label="Password"
-          id="password"
+          name="password"
           type="password"
           placeholder={"Enter Password"}
           value={password}
-          size={"3"}
           onChange={(event) => setPassword(event.target.value)}
           required
           autoComplete="new-password"
         />
-
         <InputField
           label="Confirm Password"
-          id="passwordConfirmation"
+          name="passwordConfirmation"
           type="password"
           placeholder={"Confirm Password"}
           value={passwordConfirmation}
-          size={"3"}
           onChange={(event) => setPasswordConfirmation(event.target.value)}
           required
           autoComplete="new-password"
+        />
+        <InputField
+          label={
+            <>
+              <span>I agree to the </span>
+              <Link href="/terms">Terms and Conditions</Link>
+            </>
+          }
+          type="checkbox"
+          required
+          name="terms"
+          errorMessages={errors.terms}
         />
 
         <Button variant="solid" size="4">

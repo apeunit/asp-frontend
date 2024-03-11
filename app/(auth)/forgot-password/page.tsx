@@ -35,9 +35,8 @@ const Page = () => {
       <form onSubmit={submitForm}>
         <InputField
           label="E-Mail"
-          id="email"
+          name="email"
           type="email"
-          size={"3"}
           placeholder={"name@work-email.com"}
           value={email}
           onChange={(event) => setEmail(event.target.value)}

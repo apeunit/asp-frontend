@@ -8,6 +8,39 @@
 .label{
   font-weight: 500;
   font-size: var(--font-size-3);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label.expandable{
+  cursor: pointer;
+  user-select: none;
+}
+
+.label.expandable:hover{
+  opacity: .7;
+}
+
+.label.expandable:not(.expanded) ~ * {
+  display: none !important;
+}
+
+.label .expanderIcon{
+  transform: rotate(180deg);
+  transition: all .1s ease-in-out;
+}
+
+.label .expanderIcon.expanded{
+  transform-origin: center center;
+  transform: none;
+}
+
+.description{
+  font-size: var(--font-size-2);
+  color: var(--neutral-9);
+  margin: var(--space-1) 0;
 }
 
 .input{
@@ -41,4 +74,52 @@
   border-radius: var(--radius-3);
   margin-top: var(--space-2);
   width: 100%;
+}
+
+/* OTP */
+.otpContainer{
+  gap: var(--space-1);
+}
+.otpInputs{
+  padding: var(--space-2) var(--space-3);
+  width: 3.5ch !important;
+  text-transform: uppercase;
+}
+
+
+/* Checkbox */
+.field[data-type="checkbox"]{
+  flex-direction: row-reverse;
+}
+.field[data-type="checkbox"] .label{
+  font-weight: var(--font-weight-normal);
+  justify-content: flex-start;
+}
+.field[data-type="checkbox"] .input{
+  width: 1.2em;
+  height: 1.2em;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: var(--radius-2);
+  position: relative;
+}
+
+.field[data-type="checkbox"] .input::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/check.svg');
+  background-position: center center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.field[data-type="checkbox"] .input:checked{
+  background-color: var(--accent-10);
+  border-color: var(--accent-10);
 }

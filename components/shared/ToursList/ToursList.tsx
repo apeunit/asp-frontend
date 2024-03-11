@@ -9,9 +9,7 @@ import { Heading } from "@radix-ui/themes";
 const ToursList = ({ tours }: { tours: Tour[] }) => {
   return (
     <motion.div className={styles.list} {...TEMP_animationOptions}>
-      <Heading size={"3"} weight={"medium"}>
-        Upcoming Trips
-      </Heading>
+      <Heading weight={"medium"}>Upcoming Trips</Heading>
       {tours.map((tour, index) => (
         <TourCard
           key={index}
