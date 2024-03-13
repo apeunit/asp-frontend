@@ -10,17 +10,18 @@ import styles from "./Login.module.css";
 import { Button, Link } from "@radix-ui/themes";
 import AuthCard from "../AuthCard/AuthCard";
 import InputField from "@/components/shared/InputField/InputField";
+import { EnvelopeClosedIcon, EnvelopeOpenIcon } from "@radix-ui/react-icons";
+import Callout from "@/components/shared/Callout/Callout";
 
 const Login = () => {
   const router = useRouter();
 
-  const { login } = useAuth({
+  const { sendMagicLink } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
   });
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<any>([]);
   const [status, setStatus] = useState(null);
 
@@ -37,9 +38,8 @@ const Login = () => {
   const submitForm = async (event) => {
     event.preventDefault();
 
-    login({
+    sendMagicLink({
       email,
-      password,
       remember: true,
       setErrors,
       setStatus,
@@ -63,26 +63,22 @@ const Login = () => {
           autoFocus
         />
 
-        <InputField
-          label="Password"
-          name="password"
-          type="password"
-          placeholder={"Enter Password"}
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-          errorMessages={errors.password}
-          autoComplete="current-password"
-        />
-
-        <Link href="/forgot-password" className={styles.forgotPassword}>
-          Forgot password?
-        </Link>
-
         <Button variant="solid" size="4">
-          Log In
+          Send Login Link
         </Button>
       </form>
+
+      <Callout
+        color="neutral"
+        className={styles.callout}
+        icon={EnvelopeOpenIcon}
+      >
+        Wir senden Ihnen einen Code per E-Mail, damit Sie sich ohne Passwort
+        anmelden können. Oder Sie{" "}
+        <a href="/login-with-password">
+          melden sich stattdessen mit einem Passwort an.
+        </a>
+      </Callout>
 
       <div className={styles.alternativeLinks}>
         Sie haben noch keinen Account?{" "}
