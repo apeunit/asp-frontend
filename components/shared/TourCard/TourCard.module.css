@@ -68,6 +68,7 @@
 
 .cardContent .notes{
   color: var(--neutral-10);
+  margin-bottom: var(--space-6);
 }
 
 

@@ -104,7 +104,9 @@ const TourCard = (props: TourCard) => {
 
           {expanded && tour.notes !== "" && (
             <motion.div className={styles.notes}>
-              <Text size={"2"}>{tour.notes}</Text>
+              <Text as="div" size={"2"}>
+                {tour.notes}
+              </Text>
             </motion.div>
           )}
 
