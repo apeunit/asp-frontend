@@ -23,7 +23,9 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState<any>([]);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState("");
+
+  const buttonText = status ? "Resend" : "Send";
 
   useEffect(() => {
     // @ts-ignore
@@ -31,7 +33,7 @@ const Login = () => {
       // @ts-ignore
       setStatus(atob(router.reset));
     } else {
-      setStatus(null);
+      if (!status) setStatus(null);
     }
   });
 
@@ -64,28 +66,35 @@ const Login = () => {
         />
 
         <Button variant="solid" size="4">
-          Send Login Link
+          {buttonText} Login Link
         </Button>
       </form>
 
-      <Callout
-        color="neutral"
-        className={styles.callout}
-        icon={EnvelopeOpenIcon}
-      >
-        Wir senden Ihnen einen Code per E-Mail, damit Sie sich ohne Passwort
-        anmelden können. Oder Sie{" "}
-        <a href="/login-with-password">
-          melden sich stattdessen mit einem Passwort an.
-        </a>
-      </Callout>
+      {status && (
+        <Callout
+          color="positive"
+          className={styles.callout}
+          icon={EnvelopeOpenIcon}
+        >
+          {status} Please check your inbox.
+        </Callout>
+      )}
+      {!status && (
+        <Callout
+          color="neutral"
+          className={styles.callout}
+          icon={EnvelopeOpenIcon}
+        >
+          We will send you a code via email so you can log in without a
+          password. Or you can{" "}
+          <a href="/login-with-password">log in with a password instead</a>.
+        </Callout>
+      )}
 
       <div className={styles.alternativeLinks}>
-        Sie haben noch keinen Account?{" "}
-        <Link href="/register">Jetzt registrieren</Link>
+        Don't have an account yet?{" "}
+        <Link href="/register">Register now</Link>
       </div>
-
-      <AuthSessionStatus status={status} />
     </AuthCard>
   );
 };

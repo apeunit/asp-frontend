@@ -119,7 +119,10 @@ export const useAuth = ({
 
     axios
       .post("/send-magic-link", props)
-      .then(() => mutate())
+      .then((response) => {
+        setStatus(response.data.message);
+        mutate();
+      })
       .catch((error) => {
         if (error.response.status !== 422) throw error;
 

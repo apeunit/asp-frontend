@@ -5,7 +5,7 @@ import styles from "./Callout.module.css";
 
 type Callout = {
   /*TODO: implement styles other than neutral */
-  color: "neutral";
+  color: string | "neutral";
   className?: string;
   icon?: any;
   children: ReactNode;

@@ -85,8 +85,8 @@ const Login = () => {
       </form>
 
       <div className={styles.alternativeLinks}>
-        Sie haben noch keinen Account?{" "}
-        <Link href="/register">Jetzt registrieren</Link>
+        Don't have an account yet?{" "}
+        <Link href="/register">Register now</Link>
       </div>
 
       <AuthSessionStatus status={status} />
