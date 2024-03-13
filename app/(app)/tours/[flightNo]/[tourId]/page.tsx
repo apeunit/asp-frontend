@@ -27,14 +27,12 @@ const Page = (props) => {
 
   return (
     <>
-      <AnimatePresence mode={"wait"}>
-        {/* has one of multiple tours / list will handle single/multi display */}
-        {tour && (
-          <motion.div {...TEMP_animationOptions}>
-            <TourCard tour={tour} initiallyExpanded={true} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* has one of multiple tours / list will handle single/multi display */}
+      {tour && (
+        <motion.div {...TEMP_animationOptions}>
+          <TourCard tour={tour} initiallyExpanded={true} />
+        </motion.div>
+      )}
     </>
   );
 };
