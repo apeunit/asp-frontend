@@ -69,35 +69,6 @@ const Page = () => {
           errorMessages={errors.email}
         />
         <InputField
-          label="Phone"
-          name="phone"
-          type="text"
-          placeholder={"+49 "}
-          value={phone}
-          onChange={(event) => setPhone(event.target.value)}
-          errorMessages={errors.phone}
-        />
-        <InputField
-          label="Personal Number"
-          name="personalNumber"
-          type="text"
-          value={personalNumber}
-          onChange={(event) => setPersonalNumber(event.target.value)}
-          errorMessages={errors.personalNumber}
-          required
-        />
-        <InputField
-          label="Company Code"
-          description="The Company Code is provided by your employer. If you don't have one, please contact your employer."
-          name="companyCode"
-          type="otp"
-          // expandable
-          // initiallyExpanded={false}
-          value={companyCode}
-          onChange={(value) => setCompanyCode(value)}
-          errorMessages={errors.companyCode}
-        />
-        <InputField
           label="Password"
           name="password"
           type="password"
@@ -118,6 +89,35 @@ const Page = () => {
           required
           autoComplete="new-password"
           errorMessages={errors.password_confirmation}
+        />
+        <InputField
+          label="Personal Number"
+          name="personalNumber"
+          type="text"
+          value={personalNumber}
+          onChange={(event) => setPersonalNumber(event.target.value)}
+          errorMessages={errors.personalNumber}
+          required
+        />
+        <InputField
+          label="Phone"
+          name="phone"
+          type="text"
+          placeholder={"+49 "}
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+          errorMessages={errors.phone}
+        />
+        <InputField
+          label="Company Code"
+          description="The Company Code is provided by your employer. If you don't have one, please contact your employer."
+          name="companyCode"
+          type="otp"
+          // expandable
+          // initiallyExpanded={false}
+          value={companyCode}
+          onChange={(value) => setCompanyCode(value)}
+          errorMessages={errors.companyCode}
         />
         <InputField
           label={
