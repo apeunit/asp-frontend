@@ -79,6 +79,9 @@
   width: 100%;
   display: none;
 }
+.route .fromTo .from{
+  padding-bottom: var(--space-6);
+}
 .route .fromTo .from,
 .route .fromTo .to{
   position: relative;
