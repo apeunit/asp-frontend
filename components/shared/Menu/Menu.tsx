@@ -23,7 +23,7 @@ const MenuItem = (props) => {
   );
 };
 const Menu = () => {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   const items = [
     {
@@ -65,6 +65,10 @@ const Menu = () => {
 
   return (
     <motion.nav className={styles.menu} {...MENU_ANIMATION}>
+      <div className={styles.user}>
+        {user.name && <h3>{user.name}</h3>}
+        {user.email && <p>{user.email}</p>}
+      </div>
       {items && (
         <ul>
           {items.map((item, key) => (
