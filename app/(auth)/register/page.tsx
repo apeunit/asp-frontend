@@ -55,6 +55,7 @@ const Page = () => {
           required
           autoFocus
           autoComplete={"name"}
+          errorMessages={errors.name}
         />
         <InputField
           label="E-Mail"
@@ -65,6 +66,7 @@ const Page = () => {
           onChange={(event) => setEmail(event.target.value)}
           required
           autoComplete={"email"}
+          errorMessages={errors.email}
         />
         <InputField
           label="Phone"
@@ -73,6 +75,7 @@ const Page = () => {
           placeholder={"+49 "}
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
+          errorMessages={errors.phone}
         />
         <InputField
           label="Personal Number"
@@ -92,6 +95,7 @@ const Page = () => {
           initiallyExpanded={false}
           value={companyCode}
           onChange={(value) => setCompanyCode(value)}
+          errorMessages={errors.companyCode}
         />
         <InputField
           label="Password"
@@ -102,6 +106,7 @@ const Page = () => {
           onChange={(event) => setPassword(event.target.value)}
           required
           autoComplete="new-password"
+          errorMessages={errors.password}
         />
         <InputField
           label="Confirm Password"
@@ -112,6 +117,7 @@ const Page = () => {
           onChange={(event) => setPasswordConfirmation(event.target.value)}
           required
           autoComplete="new-password"
+          errorMessages={errors.password_confirmation}
         />
         <InputField
           label={
