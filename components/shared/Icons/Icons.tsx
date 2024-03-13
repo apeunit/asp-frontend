@@ -28,7 +28,6 @@ export const Dots = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <rect width={32} height={32} fill="white" fillOpacity={0.01} />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -47,13 +46,6 @@ export const Magnifier = (props: any) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <rect
-      width={16}
-      height={16}
-      transform="translate(0 0.0878906)"
-      fill="white"
-      fillOpacity={0.01}
-    />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
