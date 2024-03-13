@@ -91,8 +91,8 @@ const Page = () => {
           description="The Company Code is provided by your employer. If you don't have one, please contact your employer."
           name="companyCode"
           type="otp"
-          expandable
-          initiallyExpanded={false}
+          // expandable
+          // initiallyExpanded={false}
           value={companyCode}
           onChange={(value) => setCompanyCode(value)}
           errorMessages={errors.companyCode}
