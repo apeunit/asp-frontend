@@ -49,7 +49,7 @@ const Page = () => {
           label="Name"
           name="name"
           type="text"
-          placeholder={"Vorname Nachname"}
+          placeholder={"John Doe"}
           value={name}
           onChange={(event) => setName(event.target.value)}
           required
@@ -110,7 +110,7 @@ const Page = () => {
         />
         <InputField
           label="Company Code"
-          description="The Company Code is provided by your employer. If you don't have one, please contact your employer."
+          description="The Company Code is provided by your employer. If you don't have one, please contact your employer. The code is only necessary if your email address cannot be assigned to a company registered with us."
           name="companyCode"
           type="otp"
           // expandable
@@ -138,7 +138,7 @@ const Page = () => {
       </form>
 
       <div className={styles.alternativeLinks}>
-        Sie haben einen Account? <Link href="/login">Zum Login</Link>
+        Do you have an account already? <Link href="/login">Login</Link>
       </div>
     </AuthCard>
   );

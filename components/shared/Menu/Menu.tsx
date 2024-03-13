@@ -27,22 +27,22 @@ const Menu = () => {
 
   const items = [
     {
-      label: "Kontakt",
+      label: "Contact us",
       href: "tel:+301234567890",
       icon: Phone,
     },
     {
-      label: "Impressum",
+      label: "Imprint",
       href: "https://www.asp-ber.de/impressum/",
       icon: Info,
     },
     {
-      label: "Datenschutz",
+      label: "Privacy Policy",
       href: "https://www.asp-ber.de/datenschutz/",
       icon: Privacy,
     },
     {
-      label: "Einstellungen",
+      label: "Settings",
       disabled: true,
       icon: Settings,
     },

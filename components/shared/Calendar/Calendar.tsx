@@ -24,7 +24,7 @@ const Calendar = (props: Calendar) => {
     return nextDay;
   });
 
-  const formattedDate = currentDate.toLocaleDateString("de-DE", {
+  const formattedDate = currentDate.toLocaleDateString("en-EN", {
     weekday: "long",
     year: "numeric",
     month: "long",

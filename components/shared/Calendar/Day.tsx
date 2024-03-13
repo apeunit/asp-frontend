@@ -24,7 +24,7 @@ const Day = (props: Day) => {
       {...rest}
     >
       <Text size="3" className={styles.label}>
-        {day.toLocaleDateString("de-DE", { weekday: "short" })}
+        {day.toLocaleDateString("en-EN", { weekday: "short" })}
       </Text>
       <Text size="6" weight={"bold"} className={styles.number}>
         {day.getDate().toString().padStart(2, "0")}

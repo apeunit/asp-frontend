@@ -47,7 +47,7 @@ const TripSearch = (props: TripSearch) => {
         type="text"
         value={query}
         onChange={handleQueryUpdate}
-        placeholder="Flugnummer suchen"
+        placeholder="Search flight number"
       />
 
       <button type="submit">Search</button>

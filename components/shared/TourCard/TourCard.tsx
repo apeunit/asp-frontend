@@ -88,7 +88,7 @@ const TourCard = (props: TourCard) => {
             <motion.div className={styles.time}>
               <Text size={"4"} weight={"medium"}>
                 <span>
-                  {tourStartDateTime.toLocaleTimeString("de-DE", {
+                  {tourStartDateTime.toLocaleTimeString("en-EN", {
                     hour: "2-digit",
                     minute: "2-digit",
                   })}
