@@ -44,13 +44,18 @@
   margin: var(--space-1) 0;
 }
 
+.inputContainer{
+  align-self: stretch;
+  position: relative;
+}
+
 .input{
   appearance: none;
   font: inherit;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-3);
   border: 1px solid var(--neutral-5);
-  align-self: stretch;
+  width: 100%;
   outline: 2px solid transparent;
   transition: all .1s ease-in-out;
 }
@@ -123,4 +128,37 @@
 .field[data-type="checkbox"] .input:checked{
   background-color: var(--accent-10);
   border-color: var(--accent-10);
+}
+
+
+/* Show Password */
+.field button.showPassword{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  right: var(--space-2);
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.field button.showPassword::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%) rotate(-35deg);
+  transition: all .1s ease-in-out;
+}
+.field button.showPassword:hover{
+  opacity: .8;
+}
+.field[data-type="text"] button.showPassword::after{
+  width: 70%;
 }

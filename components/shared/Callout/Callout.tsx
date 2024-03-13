@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { ReactNode } from "react";
 
 import styles from "./Callout.module.css";
+import { motion } from "framer-motion";
 
 type Callout = {
   /*TODO: implement styles other than neutral */
@@ -12,12 +13,12 @@ type Callout = {
 };
 
 const Callout = (props: Callout) => {
-  const { color, className, icon, children } = props;
+  const { color, className, icon, children, ...rest } = props;
 
   const Icon = icon;
 
   return (
-    <div
+    <motion.div
       className={classNames(
         styles.callout,
         styles[color],
@@ -26,10 +27,11 @@ const Callout = (props: Callout) => {
         },
         className
       )}
+      {...rest}
     >
       {icon && <Icon className={styles.icon} />}
       <div>{children}</div>
-    </div>
+    </motion.div>
   );
 };
 

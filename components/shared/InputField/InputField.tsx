@@ -2,7 +2,7 @@ import OtpInput from "react-otp-input";
 
 import classNames from "classnames";
 import styles from "./InputField.module.css";
-import { ChevronUp } from "../Icons/Icons";
+import { ChevronUp, Eye } from "../Icons/Icons";
 import { ReactNode, useState } from "react";
 
 type InputField = {
@@ -28,7 +28,7 @@ const InputField = (props: InputField) => {
     label,
     name,
     id = name,
-    type = "text",
+    type: actualType = "text",
     value,
     onChange,
     required,
@@ -41,6 +41,11 @@ const InputField = (props: InputField) => {
   } = props;
 
   const [expanded, setExpanded] = useState(initiallyExpanded);
+  const [type, setType] = useState(actualType);
+
+  const handleShowPassword = () => {
+    setType(type === "password" ? "text" : "password");
+  };
 
   const hasErrors = errorMessages && errorMessages.length > 0;
   let input;
@@ -114,7 +119,20 @@ const InputField = (props: InputField) => {
 
       {description && <p className={styles.description}>{description}</p>}
 
-      {input}
+      <div className={styles.inputContainer}>
+        {input}
+
+        {actualType === "password" && (
+          <button
+            type="button"
+            className={styles.showPassword}
+            onClick={handleShowPassword}
+            title={type === "password" ? "Show Password" : "Hide Password"}
+          >
+            <Eye />
+          </button>
+        )}
+      </div>
 
       {errorMessages && (
         <div className={styles.error}>

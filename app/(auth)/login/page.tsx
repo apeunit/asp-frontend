@@ -12,6 +12,8 @@ import AuthCard from "../AuthCard/AuthCard";
 import InputField from "@/components/shared/InputField/InputField";
 import { EnvelopeClosedIcon, EnvelopeOpenIcon } from "@radix-ui/react-icons";
 import Callout from "@/components/shared/Callout/Callout";
+import { AnimatePresence } from "framer-motion";
+import { TEMP_animationOptions } from "@/lib/utils";
 
 const Login = () => {
   const router = useRouter();
@@ -70,30 +72,35 @@ const Login = () => {
         </Button>
       </form>
 
-      {status && (
-        <Callout
-          color="positive"
-          className={styles.callout}
-          icon={EnvelopeOpenIcon}
-        >
-          {status} Please check your inbox.
-        </Callout>
-      )}
-      {!status && (
-        <Callout
-          color="neutral"
-          className={styles.callout}
-          icon={EnvelopeOpenIcon}
-        >
-          We will send you a code via email so you can log in without a
-          password. Or you can{" "}
-          <a href="/login-with-password">log in with a password instead</a>.
-        </Callout>
-      )}
+      <AnimatePresence mode="wait" initial={false}>
+        {status && (
+          <Callout
+            key="status"
+            color="positive"
+            className={styles.callout}
+            icon={EnvelopeOpenIcon}
+            {...TEMP_animationOptions}
+          >
+            {status} Please check your inbox.
+          </Callout>
+        )}
+        {!status && (
+          <Callout
+            key="no-status"
+            color="neutral"
+            className={styles.callout}
+            icon={EnvelopeOpenIcon}
+            {...TEMP_animationOptions}
+          >
+            We will send you a code via email so you can log in without a
+            password. Or you can{" "}
+            <a href="/login-with-password">log in with a password instead</a>.
+          </Callout>
+        )}
+      </AnimatePresence>
 
       <div className={styles.alternativeLinks}>
-        Don't have an account yet?{" "}
-        <Link href="/register">Register now</Link>
+        Don't have an account yet? <Link href="/register">Register now</Link>
       </div>
     </AuthCard>
   );
