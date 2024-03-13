@@ -7,6 +7,7 @@ import styles from "./layout.module.css";
 
 import { Toaster } from "sonner";
 import type { Viewport } from "next";
+import { AppProvider } from "@/context/AppContext";
 
 export const metadata = {
   title: "Pick-Up",
@@ -35,7 +36,9 @@ const RootLayout = ({ children }) => {
           radius="large"
         >
           <Toaster position="top-center" richColors />
-          <div className={styles.container}>{children}</div>
+          <AppProvider>
+            <div className={styles.container}>{children}</div>
+          </AppProvider>
         </Theme>
       </body>
     </html>

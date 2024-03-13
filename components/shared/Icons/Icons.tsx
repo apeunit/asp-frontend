@@ -81,3 +81,22 @@ export const ChevronUp = (props) => (
     />
   </svg>
 );
+
+export const Time = (props) => (
+  <svg
+    width={16}
+    height={16}
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M7.73393 3.82341V7.82341L10.4006 9.15674M14.4006 7.82341C14.4006 11.5053 11.4158 14.4901 7.73393 14.4901C4.05203 14.4901 1.06726 11.5053 1.06726 7.82341C1.06726 4.14151 4.05203 1.15674 7.73393 1.15674C11.4158 1.15674 14.4006 4.14151 14.4006 7.82341Z"
+      stroke="white"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);

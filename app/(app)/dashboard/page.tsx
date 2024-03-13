@@ -1,51 +1,29 @@
 "use client";
 
-import { fetchToursByFlightNumber } from "../../../services/pickupApi";
-import { useState } from "react";
 
 import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
-import Navigation from "../Navigation";
 import { useAuth } from "@/hooks/auth";
-import { toast } from "sonner";
 import { AnimatePresence } from "framer-motion";
 import ToursList from "@/components/shared/ToursList/ToursList";
+import { useApp } from "@/context/AppContext";
 
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" });
 
-  const [flightNumber, setFlightNumber] = useState("");
-  const [tours, setTours] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { tours, loading } = useApp();
 
-  const handleSearchUpdate = async (query) => {
-    setTours(null); // Reset flight data on new submission
-    setLoading(true);
-
-    try {
-      const data = await fetchToursByFlightNumber(query);
-
-      console.log(data);
-      setTours(data);
-      setLoading(false);
-    } catch (error) {
-      toast.error(error.message);
-      setLoading(false);
-    }
-  };
+  console.log(tours, loading);
 
   return (
     <>
-      <Navigation
-        key={"navigation"}
-        user={user}
-        onSearchUpdate={handleSearchUpdate}
-      />
       <AnimatePresence mode={"wait"}>
         {/* no tours */}
-        {!tours && !loading && <EmptyCard />}
+        {(!tours || tours.tours.length < 1) && !loading && <EmptyCard />}
 
         {/* has one of multiple tours / list will handle single/multi display */}
-        {tours && tours.tours.length > 0 && <ToursList tours={tours.tours} />}
+        {tours && tours.tours && tours.tours.length > 0 && (
+          <ToursList query={tours.flightNumber} tours={tours.tours} />
+        )}
       </AnimatePresence>
     </>
   );
