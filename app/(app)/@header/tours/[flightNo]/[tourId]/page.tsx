@@ -38,10 +38,7 @@ const Header = (props) => {
         <div className={styles.logo}>
           <Image src="/klmlogo.svg" width="31" height="19" alt="" />
         </div>
-        <h1 className={styles.title}>
-          {/* TODO: show flight number here */}
-          {tour.startstrasse}
-        </h1>
+        <h1 className={styles.title}>{flightNo}</h1>
       </div>
       {tourStartDateTime && (
         <Text size="4" className={styles.dateAndTime}>
