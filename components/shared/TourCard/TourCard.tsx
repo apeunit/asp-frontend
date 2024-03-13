@@ -5,8 +5,8 @@ import { Tour } from "@/types";
 import { formatTourAddress, getStatusNiceName } from "@/lib/format";
 import VehicleDetails from "../VehicleDetails/VehicleDetails";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
-import { getStatusColor } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import { TEMP_animationOptions, getStatusColor } from "@/lib/utils";
+import { useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import Link from "next/link";
 
@@ -22,66 +22,70 @@ const TourCard = (props: TourCard) => {
   const statusColor = getStatusColor(tour.status);
 
   const [expanded, setExpanded] = useState(initiallyExpanded);
-  const [height, setHeight] = useState();
+  // const [height, setHeight] = useState();
 
   const zIndex = useMotionValue(expanded ? 2 : 0);
 
-  const cardRef = useRef<HTMLDivElement>(null);
+  console.log(props);
+
+  // const cardRef = useRef<HTMLDivElement>(null);
 
   // TODO: recalculate card height upon resize
-  useEffect(() => {
-    if (cardRef.current) {
-      setHeight(cardRef.current.offsetHeight as any);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (cardRef.current) {
+  //     setHeight(cardRef.current.offsetHeight as any);
+  //   }
+  // }, []);
 
-  const checkZIndex = () => {
-    if (expanded) {
-      zIndex.set(2);
-    } else {
-      setTimeout(() => {
-        zIndex.set(0);
-        // TODO: use correct duration or get specific point in animation through onUpdate
-      }, 200);
-    }
-  };
+  // const checkZIndex = () => {
+  //   if (expanded) {
+  //     zIndex.set(2);
+  //   } else {
+  //     setTimeout(() => {
+  //       zIndex.set(0);
+  //       // TODO: use correct duration or get specific point in animation through onUpdate
+  //     }, 200);
+  //   }
+  // };
 
-  const handleCardClick = (event) => {
-    // prevent closing of card when it's the only one in the list
-    if (!initiallyExpanded) {
-      setExpanded(!expanded);
-    }
-  };
+  // const handleCardClick = (event) => {
+  //   // prevent closing of card when it's the only one in the list
+  //   if (!initiallyExpanded) {
+  //     setExpanded(!expanded);
+  //   }
+  // };
 
   return (
-    <Link
-      href={`/tours/ASP/${tour.id}`}
-      className={styles.card}
-      style={{ height: height ? `${height}px` : undefined }}
+    <motion.div
+      className={styles.cardContainer}
+      data-open={expanded ? "" : undefined}
+      // ref={cardRef}
+      style={{ zIndex }}
+      layout
+      {...TEMP_animationOptions}
+      // onUpdate={(ter) => console.log("check index", ter)}
     >
-      <motion.div
-        className={styles.cardContainer}
-        data-open={expanded ? "" : undefined}
-        ref={cardRef}
-        style={{ zIndex }}
-        onUpdate={(ter) => console.log("check index", ter)}
+      <Link
+        href={`/tours/ASP/${tour.id}`}
+        className={styles.card}
+        // style={{ height: height ? `${height}px` : undefined }}
       >
         <motion.div
           layout
           className={classNames(styles.cardContent, styles[statusColor])}
           {...rest}
           // onClick={handleCardClick}
-          onAnimationStart={() => console.log("start")}
+          // onAnimationStart={() => console.log("start")}
           // onLayoutAnimationStart={() => console.log("layout start")}
-          onLayoutAnimationStart={checkZIndex}
+          // onLayoutAnimationStart={checkZIndex}
         >
-          <motion.div layout>
+          <motion.div>
             <Heading size={expanded ? "7" : "5"} weight={"medium"}>
               {tour.zielstrasse}
             </Heading>
           </motion.div>
           {tourStartDateTime && (
-            <motion.div layout className={styles.time}>
+            <motion.div className={styles.time}>
               <Text size={"4"} weight={"medium"}>
                 <span>
                   {tourStartDateTime.toLocaleTimeString("de-DE", {
@@ -98,14 +102,22 @@ const TourCard = (props: TourCard) => {
             </motion.div>
           )}
 
-          <motion.div layout className={styles.previewStatusText}>
-            <Text size={"2"} weight={"medium"}>
-              {getStatusNiceName(tour.status)}
-            </Text>
-          </motion.div>
+          {tour.notes !== "" && (
+            <motion.div className={styles.notes}>
+              <Text size={"2"}>{tour.notes}</Text>
+            </motion.div>
+          )}
 
-          <motion.div layout className={styles.route}>
-            <motion.div layout className={styles.fromTo}>
+          {!expanded && (
+            <motion.div className={styles.previewStatusText}>
+              <Text size={"2"} weight={"medium"}>
+                {getStatusNiceName(tour.status)}
+              </Text>
+            </motion.div>
+          )}
+
+          <motion.div className={styles.route}>
+            <motion.div className={styles.fromTo}>
               <div className={styles.from}>
                 <Text className={styles.label}>From</Text>
                 <Text size={"2"}>{formatTourAddress(tour, "start")}</Text>
@@ -137,8 +149,8 @@ const TourCard = (props: TourCard) => {
             className={styles.vehicleDetails}
           />
         </motion.div>
-      </motion.div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 };
 
