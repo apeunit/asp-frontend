@@ -10,19 +10,22 @@ import styles from "./Login.module.css";
 import { Button, Link } from "@radix-ui/themes";
 import AuthCard from "../AuthCard/AuthCard";
 import InputField from "@/components/shared/InputField/InputField";
+import { EnvelopeClosedIcon, EnvelopeOpenIcon } from "@radix-ui/react-icons";
+import Callout from "@/components/shared/Callout/Callout";
 
 const Login = () => {
   const router = useRouter();
 
-  const { login } = useAuth({
+  const { sendMagicLink } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
   });
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<any>([]);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState("");
+
+  const buttonText = status ? "Resend" : "Send";
 
   useEffect(() => {
     // @ts-ignore
@@ -30,16 +33,15 @@ const Login = () => {
       // @ts-ignore
       setStatus(atob(router.reset));
     } else {
-      setStatus(null);
+      if (!status) setStatus(null);
     }
   });
 
   const submitForm = async (event) => {
     event.preventDefault();
 
-    login({
+    sendMagicLink({
       email,
-      password,
       remember: true,
       setErrors,
       setStatus,
@@ -63,33 +65,36 @@ const Login = () => {
           autoFocus
         />
 
-        <InputField
-          label="Password"
-          name="password"
-          type="password"
-          placeholder={"Enter Password"}
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-          errorMessages={errors.password}
-          autoComplete="current-password"
-        />
-
-        <Link href="/forgot-password" className={styles.forgotPassword}>
-          Forgot password?
-        </Link>
-
         <Button variant="solid" size="4">
-          Log In
+          {buttonText} Login Link
         </Button>
       </form>
 
-      <div className={styles.alternativeLinks}>
-        Sie haben noch keinen Account?{" "}
-        <Link href="/register">Jetzt registrieren</Link>
-      </div>
+      {status && (
+        <Callout
+          color="positive"
+          className={styles.callout}
+          icon={EnvelopeOpenIcon}
+        >
+          {status} Please check your inbox.
+        </Callout>
+      )}
+      {!status && (
+        <Callout
+          color="neutral"
+          className={styles.callout}
+          icon={EnvelopeOpenIcon}
+        >
+          We will send you a code via email so you can log in without a
+          password. Or you can{" "}
+          <a href="/login-with-password">log in with a password instead</a>.
+        </Callout>
+      )}
 
-      <AuthSessionStatus status={status} />
+      <div className={styles.alternativeLinks}>
+        Don't have an account yet?{" "}
+        <Link href="/register">Register now</Link>
+      </div>
     </AuthCard>
   );
 };

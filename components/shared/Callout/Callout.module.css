@@ -1,0 +1,42 @@
+.callout {
+  padding: var(--space-5);
+  border-radius: var(--radius-5);
+  border: 1px solid transparent;
+}
+.callout.hasIcon {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.callout .icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 20px;
+  height: auto;
+  display: block;
+}
+.callout a {
+  text-decoration: none;
+}
+.callout a:hover {
+  text-decoration: underline;
+}
+
+/* COLOR: Neutral */
+.callout.neutral {
+  background-color: #f9f9fb;
+  border-color: #e5e5e5;
+  color: var(--neutral-11);
+}
+
+.callout.neutral a {
+  color: var(--accent-11);
+}
+
+/* COLOR: Positive */
+.callout.positive {
+  background-color: rgb(214, 241, 223);
+  border-color: rgb(33, 131, 88);
+  color: rgb(33, 131, 88);
+}

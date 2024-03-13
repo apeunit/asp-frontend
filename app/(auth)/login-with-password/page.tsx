@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AuthSessionStatus from "../AuthSessionStatus";
 
-import styles from "./Login.module.css";
+import styles from "./LoginWithPassword.module.css";
 
 import { Button, Link } from "@radix-ui/themes";
 import AuthCard from "../AuthCard/AuthCard";
@@ -14,12 +14,13 @@ import InputField from "@/components/shared/InputField/InputField";
 const Login = () => {
   const router = useRouter();
 
-  const { sendMagicLink } = useAuth({
+  const { login } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
   });
 
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<any>([]);
   const [status, setStatus] = useState(null);
 
@@ -36,8 +37,9 @@ const Login = () => {
   const submitForm = async (event) => {
     event.preventDefault();
 
-    sendMagicLink({
+    login({
       email,
+      password,
       remember: true,
       setErrors,
       setStatus,
@@ -61,22 +63,30 @@ const Login = () => {
           autoFocus
         />
 
+        <InputField
+          label="Password"
+          name="password"
+          type="password"
+          placeholder={"Enter Password"}
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          required
+          errorMessages={errors.password}
+          autoComplete="current-password"
+        />
+
+        <Link href="/forgot-password" className={styles.forgotPassword}>
+          Forgot password?
+        </Link>
+
         <Button variant="solid" size="4">
-          Send Login Link
+          Log In
         </Button>
       </form>
 
-      <div>
-        <p>
-          Wir senden Ihnen einen Code per E-Mail, damit Sie sich ohne Passwort
-          anmelden können. Oder Sie{" "}
-          <a href="/login">melden sich stattdessen mit einem Passwort an.</a>
-        </p>
-      </div>
-
       <div className={styles.alternativeLinks}>
-        Sie haben noch keinen Account?{" "}
-        <Link href="/register">Jetzt registrieren</Link>
+        Don't have an account yet?{" "}
+        <Link href="/register">Register now</Link>
       </div>
 
       <AuthSessionStatus status={status} />
