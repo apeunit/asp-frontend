@@ -1,8 +1,12 @@
+"use client";
+
 import { Heading } from "@radix-ui/themes";
 import styles from "./AuthCard.module.css";
 import Image from "next/image";
 import classNames from "classnames";
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { TEMP_animationOptions } from "@/lib/utils";
 
 type AuthCard = {
   title?: string;
@@ -11,7 +15,10 @@ type AuthCard = {
 };
 
 const AuthCard = ({ title, className, children }: AuthCard) => (
-  <div className={classNames(styles.card, className)}>
+  <motion.div
+    className={classNames(styles.card, className)}
+    {...TEMP_animationOptions}
+  >
     <Image
       src="/app-icon.png"
       width={72}
@@ -27,7 +34,7 @@ const AuthCard = ({ title, className, children }: AuthCard) => (
     )}
 
     {children}
-  </div>
+  </motion.div>
 );
 
 export default AuthCard;
