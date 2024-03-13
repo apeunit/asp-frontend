@@ -26,11 +26,7 @@ const ToursList = (props: ToursList) => {
       </Heading>
 
       {tours.map((tour, index) => (
-        <TourCard
-          key={index}
-          tour={tour}
-          initiallyExpanded={tours.length == 1}
-        />
+        <TourCard key={index} tour={tour} />
       ))}
     </motion.div>
   );

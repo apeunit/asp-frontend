@@ -42,6 +42,10 @@
   margin-left: .8ch;
 }
 
+.cardContent .notes{
+  color: var(--neutral-10);
+}
+
 
 .route{
   align-items: center;
@@ -131,7 +135,7 @@
   border-radius: var(--radius-7);
   padding: var(--space-7) var(--space-5);
   height: 100%;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 

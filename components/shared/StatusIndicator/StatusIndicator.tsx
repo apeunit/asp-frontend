@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./StatusIndicator.module.css";
 import { tourStatus } from "@/types";
-import { getStatusColor } from "@/lib/utils";
+import { TEMP_animationOptions, getStatusColor } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 const WaitingIcon = (props) => (
@@ -128,7 +128,6 @@ const StatusIndicator = (props) => {
 
   return (
     <motion.div
-      layout
       className={classNames(styles.indicator, styles[statusColor], className)}
       data-status={lowerCaseStatus}
       {...rest}
