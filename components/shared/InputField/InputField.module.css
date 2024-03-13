@@ -10,11 +10,12 @@
   font-size: var(--font-size-3);
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .label.expandable{
+  justify-content: space-between;
   cursor: pointer;
   user-select: none;
 }
