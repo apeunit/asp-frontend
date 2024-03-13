@@ -1,6 +1,6 @@
 import axios from "../lib/axios";
 
-const fetchToursByFlightNumber = async (flightNumber) => {
+export const fetchToursByFlightNumber = async (flightNumber) => {
   try {
     const response = await axios.post("/api/v1/pickup", {
       flightNumber: flightNumber,
@@ -12,4 +12,12 @@ const fetchToursByFlightNumber = async (flightNumber) => {
   }
 };
 
-export { fetchToursByFlightNumber };
+export const fetchTour = async (flightNo, tourId) => {
+  const tours = await fetchToursByFlightNumber(flightNo);
+
+  // const tour = tours.tours.find((tour) => tour.id === tourId);
+  const tour = tours.tours[0];
+
+  return tour;
+};
+

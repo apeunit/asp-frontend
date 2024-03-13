@@ -12,6 +12,8 @@ export type kfztyp = string;
 export type pax = string;
 
 export type Tour = {
+  id: string;
+  notes: string;
   abfahrtzeit: string;
   kfzfarbe: kfzfarbe;
   kfzkennzeichen: kfzkennzeichen;
@@ -28,4 +30,17 @@ export type Tour = {
   zielort: string;
   zielplz: string;
   zielstrasse: string;
+};
+
+export type Company = {
+  company_name: string;
+  email_domain: string;
+  id: number;
+  short: string;
+};
+
+export type ToursPayload = {
+  flightNumber: string;
+  tours: Tour[];
+  companies: Company[];
 };

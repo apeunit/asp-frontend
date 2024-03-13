@@ -9,8 +9,8 @@
   font-family: inherit;
   border: 0;
   width: 100%;
-  padding: var(--space-3);
-  padding-left: var(--space-7);
+  padding: var(--space-4);
+  padding-left: var(--space-8);
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -29,12 +29,12 @@
 
 .form .icon{
   position: absolute;
-  left: var(--space-3);
+  left: var(--space-4);
   top: 50%;
   transform: translateY(-50%);
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 .form button[type="submit"]{

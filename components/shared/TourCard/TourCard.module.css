@@ -1,5 +1,7 @@
 .card{
   width: 100%;
+  color: inherit;
+  text-decoration: unset;
 }
 
 .cardContainer{
@@ -115,12 +117,13 @@
 
 /* open card */
 .cardContainer[data-open]{
-  top: 0;
+  /* top: 0;
   left: 0;
-  right: 0;
-  position: absolute;
+  right: 0; */
+  /* NOTE: disabled until we figure out the whole animations thing */
+  /* position: absolute; */
   /* z-index: 100; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 

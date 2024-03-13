@@ -8,6 +8,7 @@ import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import { getStatusColor } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import Link from "next/link";
 
 type TourCard = {
   tour: Tour;
@@ -53,7 +54,8 @@ const TourCard = (props: TourCard) => {
   };
 
   return (
-    <div
+    <Link
+      href={`/tours/ASP/${tour.id}`}
       className={styles.card}
       style={{ height: height ? `${height}px` : undefined }}
     >
@@ -68,7 +70,7 @@ const TourCard = (props: TourCard) => {
           layout
           className={classNames(styles.cardContent, styles[statusColor])}
           {...rest}
-          onClick={handleCardClick}
+          // onClick={handleCardClick}
           onAnimationStart={() => console.log("start")}
           // onLayoutAnimationStart={() => console.log("layout start")}
           onLayoutAnimationStart={checkZIndex}
@@ -136,7 +138,7 @@ const TourCard = (props: TourCard) => {
           />
         </motion.div>
       </motion.div>
-    </div>
+    </Link>
   );
 };
 
