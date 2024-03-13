@@ -5,11 +5,13 @@ import styles from "./Navigation.module.css";
 import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { Button } from "@radix-ui/themes";
+import { useApp } from "@/context/AppContext";
+import { Popover } from "react-tiny-popover";
+import Menu from "../Menu/Menu";
 
 const Navigation = () => {
   const { user, logout } = useAuth({ middleware: "auth" });
-  // TODO: move menu state to context
-  const [open, setOpen] = useState(false);
+  const { toggleMenu, menuOpen, closeMenu } = useApp();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -31,20 +33,20 @@ const Navigation = () => {
           )}
         </div>
         {/* TODO: implement drop down menu */}
-        <IconButton onClick={() => setOpen(!open)}>
-          <Dots />
-        </IconButton>
+        <Popover
+          isOpen={menuOpen}
+          positions={["bottom"]} // preferred positions by priority
+          align="end"
+          onClickOutside={closeMenu}
+          content={<Menu />}
+        >
+          <div>
+            <IconButton onClick={toggleMenu}>
+              <Dots />
+            </IconButton>
+          </div>
+        </Popover>
       </header>
-      {/* Responsive Navigation Menu */}
-      {open && (
-        <div>
-          <div>{user?.name}</div>
-          <div>{user?.email}</div>
-
-          {/* Authentication */}
-          <Button onClick={logout}>Logout</Button>
-        </div>
-      )}
     </>
   );
 };

@@ -8,12 +8,20 @@ type AppContext = {
   setTours: any;
   loading: boolean;
   setLoading: any;
+  menuOpen: boolean;
+  openMenu: any;
+  closeMenu: any;
+  toggleMenu: any;
 };
 export const AppContext = createContext<AppContext>({
   tours: null,
   setTours: () => {},
   loading: false,
   setLoading: () => {},
+  menuOpen: false,
+  openMenu: () => {},
+  closeMenu: () => {},
+  toggleMenu: () => {},
 });
 
 type AppProvider = {
@@ -23,9 +31,25 @@ type AppProvider = {
 export const AppProvider = ({ children }: AppProvider) => {
   const [tours, setTours] = React.useState<ToursPayload>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+
+  const openMenu = () => setMenuOpen(true);
+  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <AppContext.Provider value={{ tours, setTours, loading, setLoading }}>
+    <AppContext.Provider
+      value={{
+        tours,
+        setTours,
+        loading,
+        setLoading,
+        menuOpen,
+        openMenu,
+        closeMenu,
+        toggleMenu,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
