@@ -21,6 +21,30 @@
   align-items: flex-start;
   pointer-events: all;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 12px -10px rgba(0, 0, 0, 0.6),
+    -1px -1px 1px 0px rgb(0,0,0,.007);
+}
+
+
+.cardContent::before{
+  position: absolute;
+  left: -8px;
+  width: 16px;
+  height: 80%;
+  top: 10%;
+  content: "";
+  background-color: transparent;
+  border-radius: 200px;
+}
+.cardContent.red::before{
+  background-color: var(--error-10);
+}
+.cardContent.blue::before{
+  background-color: var(--accent-5);
+}
+.cardContent.green::before{
+  background-color: var(--success-10);
 }
 
 .cardContent.red .time{
@@ -136,6 +160,10 @@
   padding: var(--space-7) var(--space-5);
   height: 100%;
   gap: var(--space-2);
+}
+
+.cardContainer[data-open] .cardContent::before{
+  display: none;
 }
 
 

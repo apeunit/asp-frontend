@@ -16,6 +16,10 @@
   }
 }
 
+.card .title{
+  text-align: center;
+}
+
 .card .text{
   color: var(--neutral-10);
   max-width: 300px;

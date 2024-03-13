@@ -9,7 +9,7 @@ import Link from "next/link";
 const EmptyCard = () => {
   return (
     <motion.div className={styles.card} {...TEMP_animationOptions}>
-      <Heading size="6" weight={"regular"}>
+      <Heading size="6" weight={"regular"} className={styles.title}>
         Bitte geben Sie eine Flugnummer ein
       </Heading>
 
