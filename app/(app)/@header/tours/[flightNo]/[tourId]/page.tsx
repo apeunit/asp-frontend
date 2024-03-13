@@ -43,7 +43,7 @@ const Header = (props) => {
       {tourStartDateTime && (
         <Text size="4" className={styles.dateAndTime}>
           <Time />
-          <span>{tourStartDateTime.toLocaleString("de-DE")}</span>
+          <span>{tourStartDateTime.toLocaleString("en-EN")}</span>
         </Text>
       )}
 

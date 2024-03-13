@@ -47,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <AuthCard className={styles.card} title={"Willkommen!"}>
+    <AuthCard className={styles.card} title={"Welcome!"}>
       <form onSubmit={submitForm}>
         {/* Email Address */}
         <InputField

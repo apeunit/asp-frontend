@@ -10,11 +10,11 @@ const EmptyCard = () => {
   return (
     <motion.div className={styles.card} {...TEMP_animationOptions}>
       <Heading size="6" weight={"regular"} className={styles.title}>
-        Bitte geben Sie eine Flugnummer ein
+        Please enter a flight number
       </Heading>
 
       <Text size="3" className={styles.text}>
-        Schau im Kalender nach zukünftig geplanten Fahrten.
+        Should multiple trips be displayed, please pay attention to the details to determine which trip is intended for you.
       </Text>
 
       <Chaos className={styles.illustration} />
