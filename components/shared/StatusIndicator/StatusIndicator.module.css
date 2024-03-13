@@ -35,6 +35,7 @@
 .indicator.blue,
 .indicator.blue{
   background-color: var(--accent-3);
+  color: var(--accent-11);
 }
 .indicator.blue .inner,
 .indicator.blue .inner,
