@@ -8,6 +8,8 @@ import { fetchTour } from "@/services/pickupApi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import styles from "./Tour.module.css";
+
 const Page = (props) => {
   // console.log(props);
   const { params } = props;
@@ -29,7 +31,7 @@ const Page = (props) => {
     <>
       {/* has one of multiple tours / list will handle single/multi display */}
       {tour && (
-        <motion.div {...TEMP_animationOptions}>
+        <motion.div {...TEMP_animationOptions} className={styles.cardWrapper}>
           <TourCard tour={tour} initiallyExpanded={true} />
         </motion.div>
       )}

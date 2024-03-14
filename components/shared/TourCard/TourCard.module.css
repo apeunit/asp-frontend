@@ -2,6 +2,9 @@
   width: 100%;
   color: inherit;
   text-decoration: unset;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .cardContainer{
@@ -19,11 +22,13 @@
   flex-direction: column;
   gap: var(--space-2);
   align-items: flex-start;
+  flex-grow: 1;
   pointer-events: all;
   position: relative;
   overflow: hidden;
   box-shadow: 0 1px 12px -10px rgba(0, 0, 0, 0.6),
     -1px -1px 1px 0px rgb(0,0,0,.007);
+  transition: all .2s ease-in-out;
 }
 
 
@@ -147,6 +152,17 @@
   margin-top: -24px;
 }
 
+
+/* closed card */
+.cardContainer:not([data-open]) .cardContent:hover{
+  box-shadow: 0 2px 14px -8px rgba(0, 0, 0, 0.4),
+    -1px -1px 1px 0px rgb(0,0,0,.01);
+}
+
+.cardContainer:not([data-open]) .cardContent:active{
+  transform: translateY(1px);
+}
+
 /* open card */
 .cardContainer[data-open]{
   /* top: 0;
@@ -164,6 +180,12 @@
   padding: var(--space-7) var(--space-5);
   height: 100%;
   gap: var(--space-2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  @media screen and (min-width: 768px){
+    border-radius: var(--radius-7);
+  }
 }
 
 .cardContainer[data-open] .cardContent::before{

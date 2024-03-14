@@ -38,3 +38,12 @@
 .header .status{
   opacity: .6;
 }
+
+/* make card gros toward bottom */
+.cardWrapper,
+.cardWrapper > div,
+.cardWrapper > div > div{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
