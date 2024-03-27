@@ -26,7 +26,7 @@ const ToursList = (props: ToursList) => {
       </Heading>
 
       {tours.map((tour, index) => (
-        <TourCard key={index} tour={tour} />
+        <TourCard key={index} tour={tour} flight={query} />
       ))}
     </motion.div>
   );

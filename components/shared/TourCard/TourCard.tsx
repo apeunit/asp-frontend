@@ -12,12 +12,13 @@ import Link from "next/link";
 
 type TourCard = {
   tour: Tour;
+  flight: string;
   className?: string;
   initiallyExpanded?: boolean;
 };
 
 const TourCard = (props: TourCard) => {
-  const { tour, initiallyExpanded = false, className, ...rest } = props;
+  const { tour, flight, initiallyExpanded = false, className, ...rest } = props;
   const tourStartDateTime = new Date(tour.abfahrtzeit);
   const statusColor = getStatusColor(tour.status);
 
@@ -66,7 +67,7 @@ const TourCard = (props: TourCard) => {
       // onUpdate={(ter) => console.log("check index", ter)}
     >
       <Link
-        href={`/tours/ASP/${tour.id}`}
+        href={`/tours/${flight}/${tour.id}`}
         className={styles.card}
         // style={{ height: height ? `${height}px` : undefined }}
       >

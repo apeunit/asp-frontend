@@ -32,7 +32,7 @@ const Page = (props) => {
       {/* has one of multiple tours / list will handle single/multi display */}
       {tour && (
         <motion.div {...TEMP_animationOptions} className={styles.cardWrapper}>
-          <TourCard tour={tour} initiallyExpanded={true} />
+          <TourCard tour={tour} flight={flightNo} initiallyExpanded={true} />
         </motion.div>
       )}
     </>
