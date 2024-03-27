@@ -13,7 +13,7 @@ const TripSearch = (props: TripSearch) => {
   const { className, onSearchUpdate, ...rest } = props;
 
   const searchParams = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get("search"));
+  const [query, setQuery] = useState(searchParams.get("search") || "");
 
   const handleQueryUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);

@@ -2,6 +2,7 @@
 
 
 import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
+import NoSearchResultsCard from "@/components/shared/NoSearchResultsCard/NoSearchResultsCard";
 import { useAuth } from "@/hooks/auth";
 import { AnimatePresence } from "framer-motion";
 import ToursList from "@/components/shared/ToursList/ToursList";
@@ -17,8 +18,10 @@ const Dashboard = () => {
   return (
     <>
       <AnimatePresence mode={"wait"}>
-        {/* no tours */}
-        {(!tours || tours.tours.length < 1) && !loading && <EmptyCard />}
+        {/* Start screen  */}
+        {(!tours) && !loading && <EmptyCard />}
+
+        {(tours && tours.tours.length < 1) && !loading && <NoSearchResultsCard />}
 
         {/* has one of multiple tours / list will handle single/multi display */}
         {tours && tours.tours && tours.tours.length > 0 && (
