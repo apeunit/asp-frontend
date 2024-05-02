@@ -20,11 +20,11 @@
   background-color: var(--accent-5);
 }
 
-/* GREY */
-.indicator.grey{
+/* GRAY */
+.indicator.gray{
   background-color: var(--slate-6);
 }
-.indicator.grey .inner{
+.indicator.gray .inner{
   background-color: var(--neutral-9);
 }
 
