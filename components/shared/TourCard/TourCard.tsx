@@ -103,14 +103,21 @@ const TourCard = (props: TourCard) => {
             </motion.div>
           )}
 
-          {(expanded && tour.note_departure !== "") ||
-            (tour.note_arrival !== "" && (
+          {expanded &&
+            (tour.note_departure !== "" || tour.note_arrival !== "") && (
               <motion.div className={styles.notes}>
-                <Text as="div" size={"2"}>
-                  {tour.note_departure}
-                </Text>
+                {tour.note_departure !== "" && (
+                  <Text as="div" size={"2"}>
+                    {tour.note_departure}
+                  </Text>
+                )}
+                {tour.note_arrival !== "" && (
+                  <Text as="div" size={"2"}>
+                    {tour.note_arrival}
+                  </Text>
+                )}
               </motion.div>
-            ))}
+            )}
 
           {!expanded && (
             <motion.div className={styles.previewStatusText}>

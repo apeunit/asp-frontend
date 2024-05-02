@@ -13,6 +13,7 @@
 .inner{
   width: 24px;
   height: 24px;
+  padding: 6px;
 }
 
 .indicator[data-status="geplant"]{
@@ -39,11 +40,11 @@
 
 /* BLUE */
 .indicator.blue{
-  background-color: var(--success-3);
-  color: var(--success-11);
+  background-color: var(--accent-3);
+  color: var(--accent-11);
 }
 .indicator.blue .inner{
-  background-color: var(--success-7);
+  background-color: var(--accent-7);
 }
 
 /* GREEN */
