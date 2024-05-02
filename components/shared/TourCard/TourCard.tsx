@@ -67,7 +67,7 @@ const TourCard = (props: TourCard) => {
       // onUpdate={(ter) => console.log("check index", ter)}
     >
       <Link
-        href={`/tours/${flight}/${tour.id}`}
+        href={`/tours/${tour.flightno}/${tour.id}`}
         className={styles.card}
         // style={{ height: height ? `${height}px` : undefined }}
       >

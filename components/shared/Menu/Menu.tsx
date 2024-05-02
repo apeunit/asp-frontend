@@ -72,7 +72,7 @@ const Menu = () => {
       {items && (
         <ul>
           {items.map((item, key) => (
-            <MenuItem {...item} />
+            <MenuItem key={key} {...item} />
           ))}
         </ul>
       )}
