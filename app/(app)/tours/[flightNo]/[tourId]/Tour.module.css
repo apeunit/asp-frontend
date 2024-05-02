@@ -14,6 +14,12 @@
   border-radius: var(--radius-4);
 }
 
+.header .logo img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .header .titleContainer{
   display: flex;
   align-items: center;
