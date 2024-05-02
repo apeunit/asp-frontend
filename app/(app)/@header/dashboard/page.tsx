@@ -3,15 +3,17 @@
 import Calendar from "@/components/shared/Calendar/Calendar";
 import TripSearch from "@/components/shared/TripSearch/TripSearch";
 import { useApp } from "@/context/AppContext";
-import { fetchToursByFlightNumber } from "@/services/pickupApi";
+import { useAuth } from "@/hooks/auth";
+import { fetchTours } from "@/services/pickupApi";
 import { toast } from "sonner";
 
 const Header = () => {
   const { setTours, setLoading } = useApp();
+  const { user } = useAuth({ middleware: "auth" });
 
   const handleSearchUpdate = async (query) => {
     try {
-      const data = await fetchToursByFlightNumber(query);
+      const data = await fetchTours(query);
 
       setTours(data);
       setLoading(false);
@@ -24,7 +26,14 @@ const Header = () => {
 
   return (
     <>
-      <Calendar />
+      <Calendar
+        // TODO: type
+        // customer
+        // event-agency
+        // company
+        showFutureDays={user?.roles[0]?.slug !== "customer" ? 7 : 0}
+        onDaySelect={() => console.log("select other day")}
+      />
       <TripSearch onSearchUpdate={handleSearchUpdate} />
     </>
   );

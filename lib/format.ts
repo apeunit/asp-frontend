@@ -1,19 +1,19 @@
 import { Tour, tourStatus } from "@/types";
 
 export const getStatusNiceName = (status: tourStatus) => {
-  switch (status) {
+  switch (status.toLowerCase()) {
     case "geplant":
-      return "Geplant";
+      return "Fahrt bestätigt";
     case "fahrzeug kommt":
-      return "Fahrzeug kommt";
+      return "Zur Abholung";
     case "kunde eingestiegen":
-      return "Kunde eingestiegen";
+      return "Fahrt zum Ziel";
     case "fahre zum ziel":
-      return "Fahre zum Ziel";
+      return "Fahrt zum Ziel";
     case "auftrag abgeschlossen":
-      return "Auftrag abgeschlossen";
+      return "Abgeschlossen";
     case "auftrag storniert":
-      return "Auftrag storniert";
+      return "Fahrt storniert";
     default:
       return status;
   }

@@ -7,12 +7,14 @@ export const createArrayOfNumbers = (length: number): number[] => {
 export const getStatusColor = (status: tourStatus): string | null => {
   switch (status.toLowerCase()) {
     case "geplant":
+      return "green";
     case "fahrzeug kommt":
-      return "grey";
+      return "light-blue";
     case "kunde eingestiegen":
     case "fahre zum ziel":
-    case "auftrag abgeschlossen":
       return "blue";
+    case "auftrag abgeschlossen":
+      return "gray";
     case "auftrag storniert":
       return "red";
     default:

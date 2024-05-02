@@ -44,6 +44,11 @@
   --accent-8: #5EB0EF;
   --accent-11: #0B68CB;
 
+  --success-6: #B4DFC4;
+  --success-9: #30A46C;
+  --success-11: #18794E;
+  --success-12: #193B2D;
+
   /* TODO: rename? feels dumb */
   --surface: var(--white);
   --slate-6: #DDDDE3;

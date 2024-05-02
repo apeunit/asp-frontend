@@ -82,7 +82,7 @@ const TourCard = (props: TourCard) => {
         >
           <motion.div>
             <Heading size={expanded ? "7" : "5"} weight={"medium"}>
-              {tour.zielstrasse}
+              {flight ? tour.zielstrasse : `Flight Number: ${tour.flightno}`}
             </Heading>
           </motion.div>
           {tourStartDateTime && (
@@ -103,13 +103,14 @@ const TourCard = (props: TourCard) => {
             </motion.div>
           )}
 
-          {expanded && tour.notes !== "" && (
-            <motion.div className={styles.notes}>
-              <Text as="div" size={"2"}>
-                {tour.notes}
-              </Text>
-            </motion.div>
-          )}
+          {(expanded && tour.note_departure !== "") ||
+            (tour.note_arrival !== "" && (
+              <motion.div className={styles.notes}>
+                <Text as="div" size={"2"}>
+                  {tour.note_departure}
+                </Text>
+              </motion.div>
+            ))}
 
           {!expanded && (
             <motion.div className={styles.previewStatusText}>

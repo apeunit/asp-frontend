@@ -45,11 +45,17 @@
 .cardContent.red::before{
   background-color: var(--error-10);
 }
-.cardContent.blue::before{
+.cardContent.light-blue::before{
   background-color: var(--accent-5);
 }
+.cardContent.light-blue::before{
+  background-color: var(--accent-5);
+}
+.cardContent.blue::before{
+  background-color: var(--accent-11);
+}
 .cardContent.green::before{
-  background-color: var(--success-10);
+  background-color: var(--success-11);
 }
 
 .cardContent.red .time{
