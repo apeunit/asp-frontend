@@ -14,7 +14,8 @@ export type pax = string;
 export type Tour = {
   id: string;
   flightno: string;
-  notes: string;
+  note_departure: string;
+  note_arrival: string;
   abfahrtzeit: string;
   kfzfarbe: kfzfarbe;
   kfzkennzeichen: kfzkennzeichen;

@@ -3,7 +3,6 @@ import styles from "./StatusIndicator.module.css";
 import { tourStatus } from "@/types";
 import { TEMP_animationOptions, getStatusColor } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { CarCheck } from "../Icons/Icons";
 
 const WaitingIcon = (props) => (
   <svg
