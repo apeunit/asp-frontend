@@ -11,8 +11,8 @@
   height: 48px;
 }
 .inner{
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   padding: 6px;
 }
 
@@ -26,6 +26,7 @@
 }
 .indicator.gray .inner{
   background-color: var(--neutral-9);
+  color: var(--slate-6);
 }
 
 
