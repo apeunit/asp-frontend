@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   const { tours, setTours, setLoading, loading } = useApp();
 
-  console.log(user, tours, loading);
+  // console.log(user, tours, loading);
   useEffect(() => {
     const initialFetch = async () => {
       if (user.roles[0].slug !== "customer") {

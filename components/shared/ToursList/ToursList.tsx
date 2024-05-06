@@ -13,10 +13,10 @@ type ToursList = {
 const ToursList = (props: ToursList) => {
   const { tours, query } = props;
 
-  console.log(
-    "zeiten",
-    tours.map((tour) => tour.abfahrtzeit)
-  );
+  // console.log(
+  //   "zeiten",
+  //   tours.map((tour) => tour.abfahrtzeit)
+  // );
 
   return (
     <motion.div className={styles.list} {...TEMP_animationOptions}>
