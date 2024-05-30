@@ -54,7 +54,7 @@ export type Role = {
   id: number;
   name: string;
   pivot: any;
-  slug: "company" | "customer";
+  slug: "company" | "customer" | "admin" | "event-agency";
   token_expires_at: string;
   updated_at: string;
 };
