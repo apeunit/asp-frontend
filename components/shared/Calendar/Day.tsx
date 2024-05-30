@@ -13,7 +13,7 @@ type Day = {
 };
 
 const Day = (props: Day) => {
-  const { day, isCurrent, hasTrips, className, ...rest } = props;
+  const { day, isCurrent, hasTrips = false, className, ...rest } = props;
 
   return (
     <button

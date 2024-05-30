@@ -32,7 +32,7 @@
 .day .hasTripsIndicator{
   width: 6px;
   height: 6px;
-  display: block;
+  display: none;
   background-color: var(--accent-5);
   position: absolute;
   bottom: var(--space-2);
@@ -40,8 +40,14 @@
   border-radius: 100%;
   transform: translateX(-50%);
 }
-
+.day.hasTrips .hasTripsIndicator{
+  display: block;
+}
 
 .day.isCurrent .hasTripsIndicator{
+  background-color: var(--accent-8);
+}
+
+.day.hasTrips .hasTripsIndicator{
   background-color: var(--accent-8);
 }

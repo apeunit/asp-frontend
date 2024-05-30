@@ -27,8 +27,6 @@ const TourCard = (props: TourCard) => {
 
   const zIndex = useMotionValue(expanded ? 2 : 0);
 
-  console.log(props);
-
   // const cardRef = useRef<HTMLDivElement>(null);
 
   // TODO: recalculate card height upon resize

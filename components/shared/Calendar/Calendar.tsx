@@ -4,6 +4,7 @@ import styles from "./Calendar.module.css";
 import Day from "./Day";
 import classNames from "classnames";
 import { createArrayOfNumbers } from "@/lib/utils";
+import { useApp } from "@/context/AppContext";
 
 type Calendar = {
   className?: string;
@@ -13,11 +14,11 @@ type Calendar = {
 
 const Calendar = (props: Calendar) => {
   const { className, showFutureDays = 0, onDaySelect, ...rest } = props;
+  const { tours } = useApp();
 
   // get current day
   const currentDate = new Date();
 
-  // TODO: improve array creation
   const nextDays = createArrayOfNumbers(showFutureDays).map((day) => {
     const nextDay = new Date(currentDate);
     nextDay.setDate(currentDate.getDate() + day);
@@ -45,6 +46,13 @@ const Calendar = (props: Calendar) => {
                 day={day}
                 isCurrent={index == 0}
                 key={index}
+                hasTrips={tours?.tours?.some((tour) => {
+                  // if day of abfahrtzeit is equal to day
+                  return (
+                    new Date(tour.abfahrtzeit).toLocaleDateString() ===
+                    day.toLocaleDateString()
+                  );
+                })}
                 onClick={() => onDaySelect(day)}
               />
             );
