@@ -123,7 +123,9 @@ const Page = () => {
           label={
             <>
               <span>I agree to the </span>
-              <Link href="/terms">Terms and Conditions</Link>
+              <Link target="_blank" href="https://www.asp-ber.de/datenschutz/">
+                Privacy Policy
+              </Link>
             </>
           }
           type="checkbox"
