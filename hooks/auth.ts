@@ -2,16 +2,27 @@ import useSWR from "swr";
 import axios from "../lib/axios";
 import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { User } from "@/types";
 
 type UseAuthProps = {
   middleware?: "auth" | "guest";
   redirectIfAuthenticated?: string;
 };
 
+type AuthResponse = {
+  user: User;
+  register: any;
+  login: any;
+  forgotPassword: any;
+  resetPassword: any;
+  resendEmailVerification: any;
+  logout: any;
+  sendMagicLink: any;
+};
 export const useAuth = ({
   middleware,
   redirectIfAuthenticated,
-}: UseAuthProps = {}) => {
+}: UseAuthProps = {}): AuthResponse => {
   const router = useRouter();
   const params = useParams();
 

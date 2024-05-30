@@ -158,6 +158,13 @@
   margin-top: -24px;
 }
 
+.cardFooter{
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: flex-end;
+}
 
 /* closed card */
 .cardContainer:not([data-open]) .cardContent:hover{

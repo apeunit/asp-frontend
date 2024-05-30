@@ -22,6 +22,7 @@ export type Tour = {
   kfznummer: kfznummer;
   kfztyp: kfztyp;
   pax: pax;
+  phone: string;
   starthausnummer: string;
   startort: string;
   startplz: string;
@@ -45,4 +46,28 @@ export type ToursPayload = {
   flightNumber: string;
   tours: Tour[];
   companies: Company[];
+};
+
+export type Role = {
+  created_at;
+  description: string;
+  id: number;
+  name: string;
+  pivot: any;
+  slug: "company" | "customer";
+  token_expires_at: string;
+  updated_at: string;
+};
+
+export type User = {
+  created_at: string;
+  email: string;
+  email_verified_at: string;
+  id: number;
+  last_login: string;
+  name: string;
+  passwordless_login_token: any;
+  personal_number: string;
+  phone_number: any;
+  roles: Role[];
 };

@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import styles from "./Tour.module.css";
 
 const Page = (props) => {
-  // console.log(props);
   const { params } = props;
   const { flightNo, tourId } = params;
   const [tour, setTour] = useState(null);

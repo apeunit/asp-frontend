@@ -15,8 +15,7 @@ export const fetchTours = async (flightNumber = "") => {
 export const fetchTour = async (flightNo, tourId) => {
   const tours = await fetchTours(flightNo);
 
-  // const tour = tours.tours.find((tour) => tour.id === tourId);
-  const tour = tours.tours[0];
+  const tour = tours.tours.find((tour) => tour.id === tourId);
 
   return tour;
 };

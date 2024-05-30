@@ -9,6 +9,11 @@ import { TEMP_animationOptions, getStatusColor } from "@/lib/utils";
 import { useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import Link from "next/link";
+import Button from "../Button/Button";
+import { Phone } from "../Icons/Icons";
+import { init } from "next/dist/compiled/webpack/webpack";
+import { useAuth } from "@/hooks/auth";
+import { isPilotOrSimilar } from "@/lib/roles";
 
 type TourCard = {
   tour: Tour;
@@ -18,6 +23,9 @@ type TourCard = {
 };
 
 const TourCard = (props: TourCard) => {
+  const { user } = useAuth({ middleware: "auth" });
+  const isPilot = isPilotOrSimilar(user);
+
   const { tour, flight, initiallyExpanded = false, className, ...rest } = props;
   const tourStartDateTime = new Date(tour.abfahrtzeit);
   const statusColor = getStatusColor(tour.status);
@@ -54,6 +62,8 @@ const TourCard = (props: TourCard) => {
   //   }
   // };
 
+  const CardComponent = initiallyExpanded ? "div" : Link;
+
   return (
     <motion.div
       className={styles.cardContainer}
@@ -64,7 +74,7 @@ const TourCard = (props: TourCard) => {
       {...TEMP_animationOptions}
       // onUpdate={(ter) => console.log("check index", ter)}
     >
-      <Link
+      <CardComponent
         href={`/tours/${tour.flightno}/${tour.id}`}
         className={styles.card}
         // style={{ height: height ? `${height}px` : undefined }}
@@ -118,7 +128,6 @@ const TourCard = (props: TourCard) => {
                 )}
               </motion.div>
             )}
-
           {!expanded && (
             <motion.div className={styles.previewStatusText}>
               <Text size={"2"} weight={"medium"}>
@@ -126,7 +135,6 @@ const TourCard = (props: TourCard) => {
               </Text>
             </motion.div>
           )}
-
           <motion.div className={styles.route}>
             <motion.div className={styles.fromTo}>
               <div className={styles.from}>
@@ -149,12 +157,10 @@ const TourCard = (props: TourCard) => {
               </Text>
             </div>
           </motion.div>
-
           <StatusIndicator
             status={tour.status}
             className={styles.statusIndicator}
           />
-
           <VehicleDetails
             kfzfarbe={tour.kfzfarbe}
             kfzkennzeichen={tour.kfzkennzeichen}
@@ -163,8 +169,16 @@ const TourCard = (props: TourCard) => {
             pax={tour.pax}
             className={styles.vehicleDetails}
           />
+
+          {!isPilot && tour.phone !== "" && (
+            <div className={styles.cardFooter}>
+              <Button variant="primary" icon={<Phone />} href="tel:+1234567890">
+                Fahrer anrufen
+              </Button>
+            </div>
+          )}
         </motion.div>
-      </Link>
+      </CardComponent>
     </motion.div>
   );
 };

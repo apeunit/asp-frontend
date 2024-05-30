@@ -39,6 +39,7 @@
   --neutral-11: #60646C;
 
   --accent-3: #EDF6FF;
+  --accent-4: #e1edf9;
   --accent-5: #CEE7FE;
   --accent-7: #96C7F2;
   --accent-8: #5EB0EF;
@@ -76,6 +77,7 @@
   --font-size-9: 60px;
 
   --font-weight-regular: 400;
+  --font-weight-medium: 500;
   --font-weight-bold: 600;
   --font-weight-black: 900;
 

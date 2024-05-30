@@ -1,0 +1,29 @@
+.button{
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-4);
+}
+
+.button.primary{
+  background-color: var(--accent-3);
+  color: var(--accent-11);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-3);
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+
+.button.primary svg path{
+  stroke: var(--accent-11);
+}
+
+.button.primary:hover{
+  background-color: var(--accent-4);
+}
