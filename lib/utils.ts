@@ -22,6 +22,13 @@ export const getStatusColor = (status: tourStatus): string | null => {
   }
 };
 
+export const getGoogleMapsLatLngLink = (
+  latitude: string,
+  longitude: string
+) => {
+  return `https://www.google.com/maps/@${latitude},${longitude},14z`;
+};
+
 export const TEMP_animationOptions = {
   initial: {
     opacity: 0,

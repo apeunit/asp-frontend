@@ -21,6 +21,8 @@ export type Tour = {
   kfzkennzeichen: kfzkennzeichen;
   kfznummer: kfznummer;
   kfztyp: kfztyp;
+  latitude: string;
+  longitude: string;
   pax: pax;
   phone: string;
   starthausnummer: string;

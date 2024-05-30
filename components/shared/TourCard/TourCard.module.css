@@ -79,9 +79,17 @@
 
 .cardContent .notes{
   color: var(--neutral-10);
-  margin-bottom: var(--space-6);
 }
 
+.cardContent .notes + .gps{
+  margin-top: var(--space-4);
+}
+.cardContent .notes + .route{
+  margin-top: var(--space-6);
+}
+.cardContent .gps + .route{
+  margin-top: var(--space-2);
+}
 
 .route{
   align-items: center;
@@ -90,6 +98,7 @@
   padding-left: var(--space-6);
   width: 100%;
   display: none;
+  margin-top: var(--space-6);
 }
 .route .fromTo .from{
   padding-bottom: var(--space-6);

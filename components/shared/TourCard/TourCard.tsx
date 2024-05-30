@@ -5,7 +5,11 @@ import { Tour } from "@/types";
 import { formatTourAddress, getStatusNiceName } from "@/lib/format";
 import VehicleDetails from "../VehicleDetails/VehicleDetails";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
-import { TEMP_animationOptions, getStatusColor } from "@/lib/utils";
+import {
+  TEMP_animationOptions,
+  getGoogleMapsLatLngLink,
+  getStatusColor,
+} from "@/lib/utils";
 import { useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import Link from "next/link";
@@ -63,6 +67,8 @@ const TourCard = (props: TourCard) => {
   // };
 
   const CardComponent = initiallyExpanded ? "div" : Link;
+
+  console.log(tour);
 
   return (
     <motion.div
@@ -128,6 +134,18 @@ const TourCard = (props: TourCard) => {
                 )}
               </motion.div>
             )}
+          {expanded && tour.latitude !== "" && tour.longitude !== "" && (
+            <div className={styles.gps}>
+              <Button
+                variant="primary"
+                size="small"
+                target="_blank"
+                href={getGoogleMapsLatLngLink(tour.latitude, tour.longitude)}
+              >
+                Show Vehicle Location in Maps
+              </Button>
+            </div>
+          )}
           {!expanded && (
             <motion.div className={styles.previewStatusText}>
               <Text size={"2"} weight={"medium"}>
