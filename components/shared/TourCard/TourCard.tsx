@@ -80,7 +80,9 @@ const TourCard = (props: TourCard) => {
         >
           <motion.div>
             <Heading size={expanded ? "7" : "5"} weight={"medium"}>
-              {flight ? tour.zielstrasse : `Flight Number: ${tour.flightno}`}
+              {flight
+                ? `To: ${tour.zielstrasse}`
+                : `Flight Number: ${tour.flightno}`}
             </Heading>
           </motion.div>
           {tourStartDateTime && (
