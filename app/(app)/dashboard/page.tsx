@@ -9,16 +9,17 @@ import { useApp } from "@/context/AppContext";
 import { useEffect } from "react";
 import { fetchTours } from "@/services/pickupApi";
 import { toast } from "sonner";
+import { isPilotOrSimilar } from "@/lib/roles";
 
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" });
+  const isPilot = isPilotOrSimilar(user);
 
   const { tours, setTours, setLoading, loading } = useApp();
 
-  // console.log(user, tours, loading);
   useEffect(() => {
     const initialFetch = async () => {
-      if (user.roles[0].slug !== "customer") {
+      if (!isPilot) {
         try {
           const data = await fetchTours();
 
@@ -32,7 +33,7 @@ const Dashboard = () => {
       }
     };
 
-    initialFetch();
+    if (!tours) initialFetch();
   }, []);
 
   return (

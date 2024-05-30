@@ -18,7 +18,7 @@ const Navigation = () => {
   // TODO: make less ugly & more robust
   const back = pathname.startsWith("/tour")
     ? () => {
-        router.push("/dashboard");
+      router.back();
       }
     : null;
 
