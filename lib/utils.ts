@@ -26,7 +26,7 @@ export const getGoogleMapsLatLngLink = (
   latitude: string,
   longitude: string
 ) => {
-  return `https://www.google.com/maps/@${latitude},${longitude},19z`;
+  return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
 };
 
 export const TEMP_animationOptions = {
