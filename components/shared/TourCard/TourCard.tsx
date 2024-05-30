@@ -146,6 +146,7 @@ const TourCard = (props: TourCard) => {
               </Button>
             </div>
           )}
+
           {!expanded && (
             <motion.div className={styles.previewStatusText}>
               <Text size={"2"} weight={"medium"}>
