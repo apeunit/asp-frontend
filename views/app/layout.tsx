@@ -1,7 +1,7 @@
 import { useAuth } from "../../hooks/auth"
 import Loading from "./Loading"
 
-import "./layout.module.css"
+import styles from "./Layout.module.css"
 import Header from "@/components/shared/Header/Header"
 
 const AppLayout = ({ children, header }: any) => {
@@ -12,7 +12,7 @@ const AppLayout = ({ children, header }: any) => {
   }
 
   return (
-    <div className={"container"}>
+    <div className={styles.container}>
       <Header>{header}</Header>
       <main>{children}</main>
     </div>

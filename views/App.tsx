@@ -52,16 +52,14 @@ const App = () => {
           path="/dashboard"
           element={
             <RootLayout>
-              <AppLayout>
-                <DashboardHeader>
+              <AppLayout header={<DashboardHeader><></></DashboardHeader>} >
                   <Dashboard />
-                </DashboardHeader>
               </AppLayout>
             </RootLayout>
           }
         />
 
-       
+
         {/* </RootLayout> */}
       </Routes>
     </BrowserRouter>

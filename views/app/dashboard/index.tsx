@@ -8,12 +8,11 @@ import { useEffect } from "react"
 import { fetchTours } from "@/services/pickupApi"
 import { toast } from "sonner"
 import { isPilotOrSimilar } from "@/lib/roles"
+import styles from "./Dashboard.module.css"
 
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" })
   const isPilot = isPilotOrSimilar(user)
-
-  console.log({ isPilot, user })
 
   const { tours, setTours, setLoading, loading } = useApp()
 
