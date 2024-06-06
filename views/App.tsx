@@ -1,13 +1,12 @@
 import React from "react"
 import { Routes } from "react-router"
-import AppRoute from "@/views/app"
-import RootLayout from "@/views/layout"
+import RootLayout from "./layout"
 
 const App = () => {
   return (
     <Routes>
       <RootLayout>
-        <AppRoute />
+        <>Hello</>
       </RootLayout>
     </Routes>
   )

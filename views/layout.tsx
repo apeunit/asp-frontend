@@ -1,5 +1,5 @@
 import "@radix-ui/themes/styles.css"
-import "@/styles/global.css"
+import "../styles/global.css"
 
 import { Theme } from "@radix-ui/themes"
 
@@ -7,7 +7,7 @@ import "./layout.module.css"
 
 import { Toaster } from "sonner"
 import type { Viewport } from "next"
-import { AppProvider } from "@/context/AppContext"
+import { AppProvider } from "../context/AppContext"
 
 export const metadata = {
   title: "Pick-Up",
