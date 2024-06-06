@@ -1,43 +1,40 @@
-import classNames from "classnames";
-import styles from "./TourCard.module.css";
-import { Heading, Text } from "@radix-ui/themes";
-import { Tour } from "@/types";
-import { formatTourAddress, getStatusNiceName } from "@/lib/format";
-import VehicleDetails from "../VehicleDetails/VehicleDetails";
-import StatusIndicator from "../StatusIndicator/StatusIndicator";
-import {
-  TEMP_animationOptions,
-  getGoogleMapsLatLngLink,
-  getStatusColor,
-} from "@/lib/utils";
-import { useState } from "react";
-import { motion, useMotionValue } from "framer-motion";
-import Link from "next/link";
-import Button from "../Button/Button";
-import { Phone } from "../Icons/Icons";
-import { init } from "next/dist/compiled/webpack/webpack";
-import { useAuth } from "@/hooks/auth";
-import { isPilotOrSimilar } from "@/lib/roles";
+import classNames from "classnames"
+import styles from "./TourCard.module.css"
+import { Heading, Text } from "@radix-ui/themes"
+import { Tour } from "@/types"
+import { formatTourAddress, getStatusNiceName } from "@/lib/format"
+import VehicleDetails from "../VehicleDetails/VehicleDetails"
+import StatusIndicator from "../StatusIndicator/StatusIndicator"
+import { TEMP_animationOptions, getGoogleMapsLatLngLink, getStatusColor } from "@/lib/utils"
+import { useState } from "react"
+import { motion, useMotionValue } from "framer-motion"
+// import Link from "next/link";
+import Button from "../Button/Button"
+import { Phone } from "../Icons/Icons"
+import { init } from "next/dist/compiled/webpack/webpack"
+import { useAuth } from "@/hooks/auth"
+import { isPilotOrSimilar } from "@/lib/roles"
+import { Link } from "react-router-dom"
 
 type TourCard = {
-  tour: Tour;
-  flight: string;
-  className?: string;
-  initiallyExpanded?: boolean;
-};
+  tour: Tour
+  flight: string
+  className?: string
+  initiallyExpanded?: boolean
+}
 
 const TourCard = (props: TourCard) => {
-  const { user } = useAuth({ middleware: "auth" });
-  const isPilot = isPilotOrSimilar(user);
+  const { user } = useAuth({ middleware: "auth" })
+  const isPilot = isPilotOrSimilar(user)
 
-  const { tour, flight, initiallyExpanded = false, className, ...rest } = props;
-  const tourStartDateTime = new Date(tour.abfahrtzeit);
-  const statusColor = getStatusColor(tour.status);
+  const { tour, flight, initiallyExpanded = false, className, ...rest } = props
+  const tourStartDateTime = new Date(tour.abfahrtzeit)
+  const statusColor = getStatusColor(tour.status)
 
-  const [expanded, setExpanded] = useState(initiallyExpanded);
+  const [expanded, setExpanded] = useState(initiallyExpanded)
   // const [height, setHeight] = useState();
 
-  const zIndex = useMotionValue(expanded ? 2 : 0);
+  const zIndex = useMotionValue(expanded ? 2 : 0)
 
   // const cardRef = useRef<HTMLDivElement>(null);
 
@@ -66,9 +63,9 @@ const TourCard = (props: TourCard) => {
   //   }
   // };
 
-  const CardComponent = initiallyExpanded ? "div" : Link;
+  const CardComponent = initiallyExpanded ? "div" : Link
 
-  console.log(tour);
+  console.log(tour)
 
   return (
     <motion.div
@@ -81,7 +78,7 @@ const TourCard = (props: TourCard) => {
       // onUpdate={(ter) => console.log("check index", ter)}
     >
       <CardComponent
-        href={`/tours/${tour.flightno}/${tour.id}`}
+        to={`/tours/${tour.flightno}/${tour.id}`}
         className={styles.card}
         // style={{ height: height ? `${height}px` : undefined }}
       >
@@ -96,9 +93,7 @@ const TourCard = (props: TourCard) => {
         >
           <motion.div>
             <Heading size={expanded ? "7" : "5"} weight={"medium"}>
-              {flight
-                ? `To: ${tour.zielstrasse}`
-                : `Flight Number: ${tour.flightno}`}
+              {flight ? `To: ${tour.zielstrasse}` : `Flight Number: ${tour.flightno}`}
             </Heading>
           </motion.div>
           {tourStartDateTime && (
@@ -111,29 +106,26 @@ const TourCard = (props: TourCard) => {
                   })}
                 </span>
                 {parseInt(tour.verspaetung) > 0 && (
-                  <span className={styles.delay}>
-                    +{Math.floor(parseInt(tour.verspaetung) / 60)} min
-                  </span>
+                  <span className={styles.delay}>+{Math.floor(parseInt(tour.verspaetung) / 60)} min</span>
                 )}
               </Text>
             </motion.div>
           )}
 
-          {expanded &&
-            (tour.note_departure !== "" || tour.note_arrival !== "") && (
-              <motion.div className={styles.notes}>
-                {tour.note_departure !== "" && (
-                  <Text as="div" size={"2"}>
-                    {tour.note_departure}
-                  </Text>
-                )}
-                {tour.note_arrival !== "" && (
-                  <Text as="div" size={"2"}>
-                    {tour.note_arrival}
-                  </Text>
-                )}
-              </motion.div>
-            )}
+          {expanded && (tour.note_departure !== "" || tour.note_arrival !== "") && (
+            <motion.div className={styles.notes}>
+              {tour.note_departure !== "" && (
+                <Text as="div" size={"2"}>
+                  {tour.note_departure}
+                </Text>
+              )}
+              {tour.note_arrival !== "" && (
+                <Text as="div" size={"2"}>
+                  {tour.note_arrival}
+                </Text>
+              )}
+            </motion.div>
+          )}
           {expanded && tour.latitude !== "" && tour.longitude !== "" && (
             <div className={styles.gps}>
               <Button
@@ -176,10 +168,7 @@ const TourCard = (props: TourCard) => {
               </Text>
             </div>
           </motion.div>
-          <StatusIndicator
-            status={tour.status}
-            className={styles.statusIndicator}
-          />
+          <StatusIndicator status={tour.status} className={styles.statusIndicator} />
           <VehicleDetails
             kfzfarbe={tour.kfzfarbe}
             kfzkennzeichen={tour.kfzkennzeichen}
@@ -199,7 +188,7 @@ const TourCard = (props: TourCard) => {
         </motion.div>
       </CardComponent>
     </motion.div>
-  );
-};
+  )
+}
 
-export default TourCard;
+export default TourCard
