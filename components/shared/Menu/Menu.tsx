@@ -1,4 +1,4 @@
-import { useAuth } from "../../../hooks/auth";
+import { useAuth } from "@/hooks/auth";
 import styles from "./Menu.module.css";
 import { Info, Logout, Phone, Privacy, Settings } from "../Icons/Icons";
 import { motion } from "framer-motion";

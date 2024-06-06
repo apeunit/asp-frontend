@@ -8,4 +8,10 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      input: "./views/index.html",
+    },
+  },
 })
