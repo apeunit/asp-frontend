@@ -2,7 +2,7 @@
 
 import { useAuth } from "../../../hooks/auth";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import AuthSessionStatus from "../AuthSessionStatus";
 
 import styles from "./Login.module.css";
@@ -16,12 +16,12 @@ import { AnimatePresence } from "framer-motion";
 import { TEMP_animationOptions } from "@/lib/utils";
 
 const Login = () => {
-  const router = useRouter();
+  const router = useNavigate();
 
-  const { sendMagicLink } = useAuth({
-    middleware: "guest",
-    redirectIfAuthenticated: "/dashboard",
-  });
+  // const { sendMagicLink } = useAuth({
+  //   middleware: "guest",
+  //   redirectIfAuthenticated: "/dashboard",
+  // });
 
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState<any>([]);
@@ -30,24 +30,22 @@ const Login = () => {
   const buttonText = status ? "Resend" : "Send";
 
   useEffect(() => {
-    // @ts-ignore
-    if (router.reset?.length > 0 && errors.length === 0) {
-      // @ts-ignore
-      setStatus(atob(router.reset));
-    } else {
-      if (!status) setStatus(null);
-    }
+    // if (router.reset?.length > 0 && errors.length === 0) {
+    //   setStatus(atob(router.reset));
+    // } else {
+    //   if (!status) setStatus(null);
+    // }
   });
 
   const submitForm = async (event) => {
     event.preventDefault();
 
-    sendMagicLink({
-      email,
-      remember: true,
-      setErrors,
-      setStatus,
-    });
+    // sendMagicLink({
+    //   email,
+    //   remember: true,
+    //   setErrors,
+    //   setStatus,
+    // });
   };
 
   return (

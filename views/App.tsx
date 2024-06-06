@@ -8,11 +8,25 @@ import Tour from "./app/tours"
 import Dashboard from "./app/dashboard"
 import DashboardHeader from "./app/headers/DashboardHeader"
 import AppLayout from "./app/layout"
+import Login from "./auth/login/page"
+import AuthLayout from "./auth/layout"
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+
+      <Route
+          path="/login"
+          element={
+            <RootLayout>
+              <AuthLayout>
+                <Login />
+              </AuthLayout>
+            </RootLayout>
+          }
+        />
+
         {/* <RootLayout> */}
         <Route
           path="/"
@@ -46,6 +60,8 @@ const App = () => {
             </RootLayout>
           }
         />
+
+       
         {/* </RootLayout> */}
       </Routes>
     </BrowserRouter>
