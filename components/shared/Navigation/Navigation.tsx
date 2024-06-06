@@ -1,26 +1,25 @@
-import { usePathname, useRouter } from "next/navigation";
-import IconButton from "../IconButton/IconButton";
-import { ArrowLeft, Dots } from "../Icons/Icons";
-import styles from "./Navigation.module.css";
-import { useState } from "react";
-import { useAuth } from "@/hooks/auth";
-import { Button } from "@radix-ui/themes";
-import { useApp } from "@/context/AppContext";
-import { Popover } from "react-tiny-popover";
-import Menu from "../Menu/Menu";
+import IconButton from "../IconButton/IconButton"
+import { ArrowLeft, Dots } from "../Icons/Icons"
+import styles from "./Navigation.module.css"
+import { useState } from "react"
+import { useAuth } from "@/hooks/auth"
+import { useApp } from "@/context/AppContext"
+import { Popover } from "react-tiny-popover"
+import Menu from "../Menu/Menu"
+import { useNavigate } from "react-router-dom"
 
 const Navigation = () => {
-  const { user, logout } = useAuth({ middleware: "auth" });
-  const { toggleMenu, menuOpen, closeMenu } = useApp();
-  const pathname = usePathname();
-  const router = useRouter();
+  const { user, logout } = useAuth({ middleware: "auth" })
+  const { toggleMenu, menuOpen, closeMenu } = useApp()
+  const pathname = window.location.pathname
+  const navigate = useNavigate()
 
   // TODO: make less ugly & more robust
   const back = pathname.startsWith("/tour")
     ? () => {
-      router.back();
+        navigate(-1)
       }
-    : null;
+    : null
 
   return (
     <>
@@ -48,7 +47,7 @@ const Navigation = () => {
         </Popover>
       </header>
     </>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

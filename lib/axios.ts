@@ -1,11 +1,11 @@
-import Axios from 'axios'
+import Axios from "axios"
 
 const axios = Axios.create({
-    baseURL: process.env.NEXT_PUBLIC_BACKEND_PROXY,
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-    },
-    withCredentials: true,
+  baseURL: import.meta.env.VITE_BACKEND_URL,
+  headers: {
+    "X-Requested-With": "XMLHttpRequest",
+  },
+  withCredentials: true,
 })
 
 export default axios
