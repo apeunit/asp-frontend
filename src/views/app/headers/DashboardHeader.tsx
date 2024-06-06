@@ -6,8 +6,9 @@ import { useApp } from "@/context/AppContext";
 import { useAuth } from "@/hooks/auth";
 import { fetchTours } from "@/services/pickupApi";
 import { toast } from "sonner";
+import {ReactNode} from "react";
 
-const Header = () => {
+const Header = ({children}:{children: ReactNode}) => {
   const { setTours, setLoading } = useApp();
   const { user } = useAuth({ middleware: "auth" });
 
@@ -35,6 +36,7 @@ const Header = () => {
         onDaySelect={() => console.log("select other day")}
       />
       <TripSearch onSearchUpdate={handleSearchUpdate} />
+      {children}
     </>
   );
 };

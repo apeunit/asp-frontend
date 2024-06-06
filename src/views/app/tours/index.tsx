@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/shared/Header/Header";
 import TourCard from "@/components/shared/TourCard/TourCard";
 import ToursList from "@/components/shared/ToursList/ToursList";
@@ -8,10 +6,14 @@ import { fetchTour } from "@/services/pickupApi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import styles from "./Tour.module.css";
+import "./Tour.module.css";
+import {useParams} from "react-router-dom";
 
-const Page = (props) => {
-  const { params } = props;
+
+const Tour = (props) => {
+  // const { params } = props;
+  // const { flightNo, tourId } = params;
+  const params = useParams()
   const { flightNo, tourId } = params;
   const [tour, setTour] = useState(null);
 
@@ -30,7 +32,7 @@ const Page = (props) => {
     <>
       {/* has one of multiple tours / list will handle single/multi display */}
       {tour && (
-        <motion.div {...TEMP_animationOptions} className={styles.cardWrapper}>
+        <motion.div {...TEMP_animationOptions} className="cardWrapper">
           <TourCard tour={tour} flight={flightNo} initiallyExpanded={true} />
         </motion.div>
       )}
@@ -38,4 +40,4 @@ const Page = (props) => {
   );
 };
 
-export default Page;
+export default Tour;

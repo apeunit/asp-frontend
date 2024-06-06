@@ -1,10 +1,7 @@
-"use client";
-
-import Navigation from "@/components/shared/Navigation/Navigation";
 import { useAuth } from "../../hooks/auth";
 import Loading from "./Loading";
 
-import styles from "./layout.module.css";
+import "./layout.module.css";
 import Header from "@/components/shared/Header/Header";
 
 const AppLayout = ({ children, header }: any) => {
@@ -15,7 +12,7 @@ const AppLayout = ({ children, header }: any) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={"container"}>
       <Header>{header}</Header>
       <main>{children}</main>
     </div>

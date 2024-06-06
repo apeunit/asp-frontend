@@ -3,7 +3,7 @@ import "@/styles/global.css";
 
 import { Theme } from "@radix-ui/themes";
 
-import styles from "./layout.module.css";
+import "./layout.module.css";
 
 import { Toaster } from "sonner";
 import type { Viewport } from "next";
@@ -28,7 +28,7 @@ const RootLayout = ({ children }) => {
           width={1920}
           height={1080}
         /> */}
-        <div className={styles.overlay} />
+        <div className={"overlay"} />
         <Theme
           accentColor="blue"
           grayColor="gray"
@@ -37,7 +37,7 @@ const RootLayout = ({ children }) => {
         >
           <Toaster position="top-center" richColors />
           <AppProvider>
-            <div className={styles.container}>{children}</div>
+            <div className={"container"}>{children}</div>
           </AppProvider>
         </Theme>
       </body>
