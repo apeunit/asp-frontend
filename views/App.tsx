@@ -1,7 +1,6 @@
 import React from "react"
-import { Routes } from "react-router"
 import RootLayout from "./layout"
-import { BrowserRouter, Route } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 // import AppRoute from "./app"
 import Home from "./Home"
 import TourHeader from "./app/headers/TourHeader"
