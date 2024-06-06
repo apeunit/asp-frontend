@@ -1,4 +1,3 @@
-"use client";
 
 import EmptyCard from "@/components/shared/EmptyCard/EmptyCard";
 import NoSearchResultsCard from "@/components/shared/NoSearchResultsCard/NoSearchResultsCard";
