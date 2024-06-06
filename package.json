@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "vite start",
     "prettier": "prettier --check ."
   },
   "dependencies": {
