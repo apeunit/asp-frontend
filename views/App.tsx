@@ -28,7 +28,6 @@ const App = () => {
           }
         />
 
-        {/* <RootLayout> */}
         <Route
           path="/"
           element={
@@ -37,14 +36,19 @@ const App = () => {
             </RootLayout>
           }
         />
+
         <Route
           path="/:flightNo/:tourId"
           element={
             <RootLayout>
-              <AppLayout>
-                <TourHeader>
-                  <Tour />
-                </TourHeader>
+              <AppLayout
+                header={
+                  <TourHeader>
+                    <></>
+                  </TourHeader>
+                }
+              >
+                <Tour />
               </AppLayout>
             </RootLayout>
           }
@@ -78,7 +82,6 @@ const App = () => {
         />
 
         <Route path="*" element={<NotFoundPage />} />
-        {/* </RootLayout> */}
       </Routes>
     </BrowserRouter>
   )
