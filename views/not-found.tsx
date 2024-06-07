@@ -1,5 +1,5 @@
 import { Heading, Link, Text } from "@radix-ui/themes";
-import AuthCard from "./(auth)/AuthCard/AuthCard";
+import AuthCard from "./auth/AuthCard/AuthCard";
 
 import styles from "./NotFound.module.css";
 

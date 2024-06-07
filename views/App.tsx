@@ -10,13 +10,13 @@ import DashboardHeader from "./app/headers/DashboardHeader"
 import AppLayout from "./app/layout"
 import Login from "./auth/login/page"
 import AuthLayout from "./auth/layout"
+import NotFoundPage from "./not-found"
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-
-      <Route
+        <Route
           path="/login"
           element={
             <RootLayout>
@@ -52,14 +52,22 @@ const App = () => {
           path="/dashboard"
           element={
             <RootLayout>
-              <AppLayout header={<DashboardHeader><></></DashboardHeader>} >
-                  <Dashboard />
+              <AppLayout
+                header={
+                  <DashboardHeader>
+                    <></>
+                  </DashboardHeader>
+                }
+              >
+                <Dashboard />
               </AppLayout>
             </RootLayout>
           }
         />
 
-
+        <Route path="*" element={
+          <NotFoundPage />
+        } />
         {/* </RootLayout> */}
       </Routes>
     </BrowserRouter>

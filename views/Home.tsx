@@ -7,8 +7,7 @@ const Home = () => {
   const navigate = useNavigate()
 
   useLayoutEffect(() => {
-    console.log({ user })
-    // if (user) return navigate("/dashboard")
+    if (user) return navigate("/dashboard")
   }, [user])
 
   return null
