@@ -13,6 +13,8 @@ import NotFoundPage from "./not-found"
 import LoginWithPassword from "./auth/login-with-password/page"
 import Register from "@/views/auth/register"
 import ForgotPassword from "@/views/auth/forgot-password"
+import VerifyEmail from "./auth/verify-email/page"
+import PasswordReset from "./auth/password-reset/page"
 
 const App = () => {
   return (
@@ -54,6 +56,7 @@ const App = () => {
             </RootLayout>
           }
         />
+
         <Route
           path="/dashboard"
           element={
@@ -99,6 +102,28 @@ const App = () => {
             <RootLayout>
               <AuthLayout>
                 <ForgotPassword />
+              </AuthLayout>
+            </RootLayout>
+          }
+        />
+
+        <Route
+          path="/password-reset/:token"
+          element={
+            <RootLayout>
+              <AuthLayout>
+                <PasswordReset />
+              </AuthLayout>
+            </RootLayout>
+          }
+        />
+
+        <Route
+          path="/verify-email"
+          element={
+            <RootLayout>
+              <AuthLayout>
+                <VerifyEmail />
               </AuthLayout>
             </RootLayout>
           }

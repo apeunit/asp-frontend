@@ -7,7 +7,7 @@ import { Button, Callout, Text } from "@radix-ui/themes";
 import AuthCard from "../AuthCard/AuthCard";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
-const Page = () => {
+const VerifyEmail = () => {
   const { logout, resendEmailVerification } = useAuth({
     middleware: "auth",
     redirectIfAuthenticated: "/dashboard",
@@ -46,4 +46,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default VerifyEmail;
