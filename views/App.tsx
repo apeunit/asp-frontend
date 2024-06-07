@@ -1,7 +1,6 @@
 import React from "react"
 import RootLayout from "./layout"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-// import AppRoute from "./app"
 import Home from "./Home"
 import TourHeader from "./app/headers/TourHeader"
 import Tour from "./app/tours"
@@ -12,6 +11,8 @@ import Login from "./auth/login/page"
 import AuthLayout from "./auth/layout"
 import NotFoundPage from "./not-found"
 import LoginWithPassword from "./auth/login-with-password/page"
+import Register from "@/views/auth/register"
+import ForgotPassword from "@/views/auth/forgot-password"
 
 const App = () => {
   return (
@@ -74,9 +75,31 @@ const App = () => {
           path="/login-with-password"
           element={
             <RootLayout>
-              <AppLayout>
+              <AuthLayout>
                 <LoginWithPassword />
-              </AppLayout>
+              </AuthLayout>
+            </RootLayout>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <RootLayout>
+              <AuthLayout>
+                <Register />
+              </AuthLayout>
+            </RootLayout>
+          }
+        />
+
+        <Route
+          path="/forgot-password"
+          element={
+            <RootLayout>
+              <AuthLayout>
+                <ForgotPassword />
+              </AuthLayout>
             </RootLayout>
           }
         />

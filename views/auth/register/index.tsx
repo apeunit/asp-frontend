@@ -1,31 +1,29 @@
-"use client";
+import { useAuth } from "../../../hooks/auth"
+import { useState } from "react"
 
-import { useAuth } from "../../../hooks/auth";
-import { useState } from "react";
+import styles from "./Register.module.css"
 
-import styles from "./Register.module.css";
+import { Button, Link, Text } from "@radix-ui/themes"
+import AuthCard from "../AuthCard/AuthCard"
+import InputField from "@/components/shared/InputField/InputField"
 
-import { Button, Link, Text } from "@radix-ui/themes";
-import AuthCard from "../AuthCard/AuthCard";
-import InputField from "@/components/shared/InputField/InputField";
-
-const Page = () => {
+const Register = () => {
   const { register } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/verify-email",
-  });
+  })
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [companyCode, setCompanyCode] = useState("");
-  const [personalNumber, setPersonalNumber] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [errors, setErrors] = useState<any>([]);
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [password, setPassword] = useState("")
+  const [companyCode, setCompanyCode] = useState("")
+  const [personalNumber, setPersonalNumber] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  const [errors, setErrors] = useState<any>([])
 
   const submitForm = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     register({
       name,
@@ -36,8 +34,8 @@ const Page = () => {
       password,
       password_confirmation: passwordConfirmation,
       setErrors,
-    });
-  };
+    })
+  }
 
   return (
     <AuthCard className={styles.card} title={"Registration"}>
@@ -143,7 +141,7 @@ const Page = () => {
         Do you have an account already? <Link href="/login">Login</Link>
       </div>
     </AuthCard>
-  );
-};
+  )
+}
 
-export default Page;
+export default Register
