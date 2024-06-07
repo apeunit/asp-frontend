@@ -1,8 +1,8 @@
+import { User } from "@/types"
+import { useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import useSWR from "swr"
 import axios from "../lib/axios"
-import { useEffect } from "react"
-import { User } from "@/types"
-import { useNavigate, useParams } from "react-router-dom"
 
 type UseAuthProps = {
   middleware?: "auth" | "guest"
