@@ -1,19 +1,14 @@
-"use client";
-
-import { useAuth } from "../../../hooks/auth";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import {useState } from "react";
+import styles from "./LoginWithPassword.module.css";
 import AuthSessionStatus from "../AuthSessionStatus";
 
-import styles from "./LoginWithPassword.module.css";
 
 import { Button, Link } from "@radix-ui/themes";
 import AuthCard from "../AuthCard/AuthCard";
 import InputField from "@/components/shared/InputField/InputField";
+import { useAuth } from "@/hooks/auth";
 
-const Login = () => {
-  const router = useRouter();
-
+const LoginWithPassword = () => {
   const { login } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
@@ -24,15 +19,15 @@ const Login = () => {
   const [errors, setErrors] = useState<any>([]);
   const [status, setStatus] = useState(null);
 
-  useEffect(() => {
-    // @ts-ignore
-    if (router.reset?.length > 0 && errors.length === 0) {
-      // @ts-ignore
-      setStatus(atob(router.reset));
-    } else {
-      setStatus(null);
-    }
-  });
+  // useEffect(() => {
+    // // @ts-ignore
+    // if (router.reset?.length > 0 && errors.length === 0) {
+    //   // @ts-ignore
+    //   setStatus(atob(router.reset));
+    // } else {
+    //   setStatus(null);
+    // }
+  // });
 
   const submitForm = async (event) => {
     event.preventDefault();
@@ -94,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginWithPassword;

@@ -7,13 +7,14 @@ import Header from "@/components/shared/Header/Header"
 const AppLayout = ({ children, header }: any) => {
   const { user } = useAuth({ middleware: "auth" })
 
-  if (!user) {
-    return <Loading />
-  }
+  // TODO Loading progress should be handled deferently 
+  // if (!user) {
+  //   return <Loading />
+  // }
 
   return (
     <div className={styles.container}>
-      <Header>{header}</Header>
+      {header && <Header>{header}</Header>}
       <main>{children}</main>
     </div>
   )
