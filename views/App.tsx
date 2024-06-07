@@ -11,6 +11,7 @@ import AppLayout from "./app/layout"
 import Login from "./auth/login/page"
 import AuthLayout from "./auth/layout"
 import NotFoundPage from "./not-found"
+import LoginWithPassword from "./auth/login-with-password/page"
 
 const App = () => {
   return (
@@ -65,9 +66,18 @@ const App = () => {
           }
         />
 
-        <Route path="*" element={
-          <NotFoundPage />
-        } />
+        <Route
+          path="/login-with-password"
+          element={
+            <RootLayout>
+              <AppLayout>
+                <LoginWithPassword />
+              </AppLayout>
+            </RootLayout>
+          }
+        />
+
+        <Route path="*" element={<NotFoundPage />} />
         {/* </RootLayout> */}
       </Routes>
     </BrowserRouter>
