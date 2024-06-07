@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import { Button } from "@radix-ui/themes";
 import styles from "./PasswordReset.module.css";
 import InputField from "@/components/shared/InputField/InputField";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/hooks/auth";
 import AuthCard from "../AuthCard/AuthCard";
 
 const PasswordReset = () => {
-  const params = useParams()
-  const { email: tokeEmail } = params
+  const params = useSearchParams()
   const { resetPassword } = useAuth({ middleware: "guest" });
 
   const [email, setEmail] = useState("");
@@ -30,8 +29,8 @@ const PasswordReset = () => {
   };
 
   useEffect(() => {
-    setEmail(tokeEmail);
-  }, [tokeEmail]);
+    setEmail(params["email"]);
+  }, []);
 
   return (
     <AuthCard className={styles.card} title={"Reset Password"}>
