@@ -7,7 +7,7 @@ import { Button, Link, Text } from "@radix-ui/themes"
 import AuthCard from "../AuthCard/AuthCard"
 import InputField from "@/components/shared/InputField/InputField"
 
-const Index = () => {
+const Register = () => {
   const { register } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/verify-email",
@@ -144,4 +144,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Register

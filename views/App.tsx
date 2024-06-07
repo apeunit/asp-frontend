@@ -12,6 +12,7 @@ import AuthLayout from "./auth/layout"
 import NotFoundPage from "./not-found"
 import LoginWithPassword from "./auth/login-with-password/page"
 import Register from "@/views/auth/register"
+import ForgotPassword from "@/views/auth/forgot-password"
 
 const App = () => {
   return (
@@ -87,6 +88,17 @@ const App = () => {
             <RootLayout>
               <AuthLayout>
                 <Register />
+              </AuthLayout>
+            </RootLayout>
+          }
+        />
+
+        <Route
+          path="/forgot-password"
+          element={
+            <RootLayout>
+              <AuthLayout>
+                <ForgotPassword />
               </AuthLayout>
             </RootLayout>
           }
