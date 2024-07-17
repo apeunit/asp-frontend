@@ -1,0 +1,232 @@
+.card{
+  width: 100%;
+  color: inherit;
+  text-decoration: unset;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardContainer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  pointer-events: none;
+}
+
+.cardContent{
+  background-color: var(--white);
+  border-radius: var(--radius-6);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+  flex-grow: 1;
+  pointer-events: all;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 12px -10px rgba(0, 0, 0, 0.6),
+    -1px -1px 1px 0px rgb(0,0,0,.007);
+  transition: all .2s ease-in-out;
+}
+
+
+.cardContent::before{
+  position: absolute;
+  left: -8px;
+  width: 16px;
+  height: 80%;
+  top: 10%;
+  content: "";
+  background-color: transparent;
+  border-radius: 200px;
+}
+.cardContent.red::before{
+  background-color: var(--error-10);
+}
+.cardContent.light-blue::before{
+  background-color: var(--accent-5);
+}
+.cardContent.light-blue::before{
+  background-color: var(--accent-5);
+}
+.cardContent.blue::before{
+  background-color: var(--accent-11);
+}
+.cardContent.green::before{
+  background-color: var(--success-11);
+}
+
+.cardContent.red .time{
+  text-decoration: line-through;
+  color: var(--error-10);
+}
+.cardContent.red .time .delay{
+  display: none;
+}
+
+.cardContent .time,
+.cardContent .previewStatusText{
+  color: var(--neutral-10);
+  line-height: 1em;
+}
+
+.cardContent .time .delay{
+  color: var(--error-10);
+  margin-left: .8ch;
+}
+
+.cardContent .notes{
+  color: var(--neutral-10);
+}
+
+.cardContent .notes + .gps{
+  margin-top: var(--space-4);
+}
+.cardContent .notes + .route{
+  margin-top: var(--space-6);
+}
+.cardContent .gps + .route{
+  margin-top: var(--space-2);
+}
+
+.route{
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-left: var(--space-6);
+  width: 100%;
+  display: none;
+  margin-top: var(--space-6);
+}
+.route .fromTo .from{
+  padding-bottom: var(--space-6);
+}
+.route .fromTo .from,
+.route .fromTo .to{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.route .fromTo .label,
+.route .fromTo .label{
+  color: var(--neutral-10);
+}
+
+.route .fromTo .from::before,
+.route .fromTo .to::before{
+  content: "";
+  background-color: var(--accent-11);
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  position: absolute;
+  right: 100%;
+  top: 9px;
+  margin-right: 15px;
+}
+
+.route .fromTo .from:last-child::before,
+.route .fromTo .to:last-child::before{
+  background-color: var(--accent-5);
+}
+
+.route .fromTo .from:not(:last-child)::after,
+.route .fromTo .to:not(:last-child)::after{
+  content: '';
+  display: block;
+  width: 2px;
+  height: calc(100% - 17px);
+  background-color: var(--accent-5);
+  position: absolute;
+  right: 100%;
+  margin-right: 18px;
+  border-radius: 100px;
+  top: 21px;
+}
+
+.route .status{
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.vehicleDetails{
+  margin-top: var(--space-6);
+  display: none;
+}
+
+.cardContent .statusIndicator{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -24px;
+}
+
+.cardFooter{
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: flex-end;
+}
+
+/* closed card */
+.cardContainer:not([data-open]) .cardContent:hover{
+  box-shadow: 0 2px 14px -8px rgba(0, 0, 0, 0.4),
+    -1px -1px 1px 0px rgb(0,0,0,.01);
+}
+
+.cardContainer:not([data-open]) .cardContent:active{
+  transform: translateY(1px);
+}
+
+/* open card */
+.cardContainer[data-open]{
+  /* top: 0;
+  left: 0;
+  right: 0; */
+  /* NOTE: disabled until we figure out the whole animations thing */
+  /* position: absolute; */
+  /* z-index: 100; */
+  /* overflow: hidden; */
+}
+
+
+.cardContainer[data-open] .cardContent{
+  border-radius: var(--radius-7);
+  padding: var(--space-7) var(--space-5);
+  height: 100%;
+  gap: var(--space-2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  @media screen and (min-width: 768px){
+    border-radius: var(--radius-7);
+  }
+}
+
+.cardContainer[data-open] .cardContent::before{
+  display: none;
+}
+
+
+.cardContainer[data-open] .previewStatusText{
+  opacity: 0;
+}
+
+.cardContainer[data-open] .statusIndicator{
+
+  opacity: 0;
+}
+
+.cardContainer[data-open] .route{
+  display: flex;
+}
+.cardContainer[data-open] .vehicleDetails{
+  display: block;
+}

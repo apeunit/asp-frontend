@@ -1,0 +1,164 @@
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: flex-start;
+}
+
+.label{
+  font-weight: 500;
+  font-size: var(--font-size-3);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.label.expandable{
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.label.expandable:hover{
+  opacity: .7;
+}
+
+.label.expandable:not(.expanded) ~ * {
+  display: none !important;
+}
+
+.label .expanderIcon{
+  transform: rotate(180deg);
+  transition: all .1s ease-in-out;
+}
+
+.label .expanderIcon.expanded{
+  transform-origin: center center;
+  transform: none;
+}
+
+.description{
+  font-size: var(--font-size-2);
+  color: var(--neutral-9);
+  margin: var(--space-1) 0;
+}
+
+.inputContainer{
+  align-self: stretch;
+  position: relative;
+}
+
+.input{
+  appearance: none;
+  font: inherit;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-3);
+  border: 1px solid var(--neutral-5);
+  width: 100%;
+  outline: 2px solid transparent;
+  transition: all .1s ease-in-out;
+}
+
+.input:focus-visible{
+  outline-color: var(--accent-8);
+  border-color: transparent;
+}
+
+.field.hasErrors .input{
+  border-color: #F5D08C;
+}
+
+.field + .field{
+  margin-top: var(--space-4);
+}
+
+.field .error{
+  background-color: #FDF3D4;
+  color: #895930;
+  padding: var(--space-3);
+  border-radius: var(--radius-3);
+  margin-top: var(--space-2);
+  width: 100%;
+}
+
+/* OTP */
+.otpContainer{
+  gap: var(--space-1);
+}
+.otpInputs{
+  padding: var(--space-2) var(--space-3);
+  width: 3.5ch !important;
+  text-transform: uppercase;
+}
+
+
+/* Checkbox */
+.field[data-type="checkbox"]{
+  flex-direction: row-reverse;
+}
+.field[data-type="checkbox"] .label{
+  font-weight: var(--font-weight-normal);
+  justify-content: flex-start;
+}
+.field[data-type="checkbox"] .input{
+  width: 1.2em;
+  height: 1.2em;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: var(--radius-2);
+  position: relative;
+}
+
+.field[data-type="checkbox"] .input::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/check.svg');
+  background-position: center center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.field[data-type="checkbox"] .input:checked{
+  background-color: var(--accent-10);
+  border-color: var(--accent-10);
+}
+
+
+/* Show Password */
+.field button.showPassword{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  right: var(--space-2);
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.field button.showPassword::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%) rotate(-35deg);
+  transition: all .1s ease-in-out;
+}
+.field button.showPassword:hover{
+  opacity: .8;
+}
+.field[data-type="text"] button.showPassword::after{
+  width: 70%;
+}

@@ -1,0 +1,11 @@
+.card{
+  width: 100%;
+  background-color: var(--accent-3);
+  border-radius: var(--radius-7);
+  padding: var(--space-5);
+}
+
+
+.card form{
+  width: 100%;
+}

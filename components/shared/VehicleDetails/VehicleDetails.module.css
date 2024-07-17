@@ -1,0 +1,39 @@
+.container{
+  background-color: var(--neutral-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-6);
+  position: relative;
+  width: 100%;
+}
+
+.container .type{
+  color: var(--neutral-11);
+}
+
+.container .image{
+  position: absolute;
+  right: var(--space-4);
+  top: 0;
+  max-width: 128px;
+  max-height: 128px;
+  object-fit: contain;
+
+  transform: translateY(-50%);
+}
+
+
+.container .details{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-1);
+  margin-top: var(--space-5);
+}
+
+.container .details .label{
+  margin-right: 2ch;
+  color: var(--neutral-11);
+}
+
+.container .details .label::after{
+  content: ':';
+}

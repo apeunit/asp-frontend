@@ -1,0 +1,67 @@
+.indicator,
+.inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.indicator{
+  width: 48px;
+  height: 48px;
+}
+.inner{
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+}
+
+.indicator[data-status="geplant"]{
+  background-color: var(--accent-5);
+}
+
+/* GRAY */
+.indicator.gray{
+  background-color: var(--slate-6);
+}
+.indicator.gray .inner{
+  background-color: var(--neutral-9);
+  color: var(--slate-6);
+}
+
+
+/* LIGHT BLUE */
+.indicator.light-blue{
+  background-color: var(--accent-3);
+  color: var(--accent-11);
+}
+.indicator.light-blue .inner{
+  background-color: var(--accent-7);
+}
+
+/* BLUE */
+.indicator.blue{
+  background-color: var(--accent-3);
+  color: var(--accent-11);
+}
+.indicator.blue .inner{
+  background-color: var(--accent-7);
+}
+
+/* GREEN */
+.indicator.green{
+  background-color: var(--success-6);
+  color: var(--success-9);
+}
+.indicator.green .inner{
+  background-color: var(--success-9);
+}
+
+
+/* RED */
+.indicator.red{
+  background-color: var(--error-6);
+}
+.indicator.red .inner{
+  background-color: var(--error-9);
+}

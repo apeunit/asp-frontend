@@ -1,0 +1,42 @@
+.form{
+  position: relative;
+}
+
+.form input{
+  /* TODO: generalize input styles someplace else */
+  border-radius: 100px;
+  background-color: var(--surface);
+  font-family: inherit;
+  border: 0;
+  width: 100%;
+  padding: var(--space-4);
+  padding-left: var(--space-8);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.form input:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-11);
+}
+
+.form input::placeholder{
+  color: var(--gray-a9);
+  text-transform: none;
+  letter-spacing: initial;
+}
+
+.form .icon{
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.form button[type="submit"]{
+  display: none;
+}

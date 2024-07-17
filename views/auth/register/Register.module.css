@@ -1,0 +1,28 @@
+.card{
+  margin-top: 100px;
+}
+
+.card .text{
+  color: var(--neutral-10);
+}
+
+.card form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .field + .field{
+  margin-top: var(--space-4);
+}
+
+.card button{
+  margin-top: var(--space-5);
+}
+
+
+.card .alternativeLinks{
+  font-size: var(--font-size-2);
+  margin-top: var(--space-5);
+  color: var(--neutral-10);
+}

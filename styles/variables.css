@@ -1,0 +1,97 @@
+:root {
+  /* SPACING */
+  --space-xxl: 64px;
+  --space-xl: 48px;
+  --space-l: 36px;
+  --space-m: 24px;
+  --space-s: 12px;
+  --space-xs: 8px;
+  --space-xxs: 4px;
+
+  /* TODO: clean up */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+
+  /* RADII */
+  --radius-1: 4px;
+  --radius-2: 6px;
+  --radius-3: 9px;
+  --radius-4: 12px;
+  --radius-5: 18px;
+  --radius-6: 24px;
+  --radius-7: 32px;
+
+  /* TODO: clean up */
+  /* COLORS */
+  --white: #fff;
+  --neutral-2: #F9F9FB;
+  --neutral-5: #DDDDE2;
+  --neutral-9: #8B8D98;
+  --neutral-10: #7E808A;
+  --neutral-11: #60646C;
+
+  --accent-3: #EDF6FF;
+  --accent-4: #e1edf9;
+  --accent-5: #CEE7FE;
+  --accent-7: #96C7F2;
+  --accent-8: #5EB0EF;
+  --accent-11: #0B68CB;
+
+  --success-6: #B4DFC4;
+  --success-9: #30A46C;
+  --success-11: #18794E;
+  --success-12: #193B2D;
+
+  /* TODO: rename? feels dumb */
+  --surface: var(--white);
+  --slate-6: #DDDDE3;
+  --error-6: #F9C6C6;
+  --error-9: #E5484D;
+  --error-10: #D93D42;
+
+  /* FONTS */
+  --font-size-xs: 14px;
+  --font-size-s: 16px;
+  --font-size-m: 18px;
+  --font-size-l: 22px;
+  --font-size-xl: 40px;
+  --font-size-xxl: 72px;
+
+  /* TODO: clean up numeric font-sizes / leftover due to Radix Migration */
+  --font-size-1: 12px;
+  --font-size-2: 14px;
+  --font-size-3: 16px;
+  --font-size-4: 18px;
+  --font-size-5: 20px;
+  --font-size-6: 24px;
+  --font-size-7: 28px;
+  --font-size-8: 35px;
+  --font-size-9: 60px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --font-weight-black: 900;
+
+  /* OTHER */
+  --border-radius-m: 32px;
+
+  --transition-bounce: 400ms cubic-bezier(.47,1.64,.41,.8);
+
+  --container-width: 430px;
+
+}
+
+@media screen and (min-width: 768px){
+  :root{
+    --container-width: 580px;
+  }
+}

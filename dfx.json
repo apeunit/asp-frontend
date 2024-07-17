@@ -1,0 +1,23 @@
+{
+  "canisters": {
+    "asp": {
+      "frontend": {
+        "entrypoint": "/dist/index.html"
+      },
+      "source": [
+        "dist/"
+      ],
+      "type": "assets",
+      "env": ["VITE_BACKEND_URL", "VITE_BACKEND_PROXY"],
+      "gzip": true
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

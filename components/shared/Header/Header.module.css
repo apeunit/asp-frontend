@@ -1,0 +1,16 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  width: 100%;
+  max-width: var(--container-width);
+
+  @media screen and (min-width: 768px){
+    background-color: var(--gray-a3);
+    /* border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: inset 1px 1px 0px rgba(255,255,255,0.04); */
+    border-radius: var(--radius-6);
+    margin-bottom: var(--space-4);
+  }
+}
